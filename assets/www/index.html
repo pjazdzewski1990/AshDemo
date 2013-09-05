@@ -14,12 +14,20 @@
                 <p class="event listening">Connecting to Device</p>
                 <p class="event received">Device is Ready</p>
             </div>
-            <div id="deviceorientation" class="blink">
-                <p id="deviceorientationField" class="event received">FOO</p>
+            
+            <div class="blink">
+                <p id="deviceorientationField" class="event received">Empty</p>
             </div>
-            <div>
-            	<input id="startTest" type="button" value="Test" />
+            <button type="submit" id="orientationTest" class="testButton">
+                Test Orientation
+            </button>
+            
+            <div class="blink">
+                <p id="connectionField" class="event received">Empty</p>
             </div>
+            <button type="submit" id="connectionTest" class="testButton">
+                Test Connection
+            </button>
         </div>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/jquery.js"></script>

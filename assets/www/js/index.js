@@ -12,28 +12,28 @@ var app = {
       //window.addEventListener("orientationchange", this.orientationChange, true);
       $(window).on("orientationchange", this.orientationChange);
 
-      document.getElementById('startTest').addEventListener('click', this.startTest, false);
+      document.getElementById('orientationTest').addEventListener('click', this.orientationTest, false);
+      document.getElementById('connectionTest').addEventListener('click', this.connectionTest, false);
   },
   // deviceready Event Handler
   //
   // The scope of 'this' is the event. In order to call the 'receivedEvent'
   // function, we must explicity call 'app.receivedEvent(...);'
   onDeviceReady: function() {
-      app.receivedEvent('deviceready');
+    app.receivedEvent('deviceready');
+    app.setConnectionBox();
   },
   // Update DOM on a Received Event
   receivedEvent: function(id) {
-      var parentElement = document.getElementById(id);
-      var listeningElement = parentElement.querySelector('.listening');
-      var receivedElement = parentElement.querySelector('.received');
+    var parentElement = document.getElementById(id);
+    var listeningElement = parentElement.querySelector('.listening');
+    var receivedElement = parentElement.querySelector('.received');
 
-      listeningElement.setAttribute('style', 'display:none;');
-      receivedElement.setAttribute('style', 'display:block;');
-
-      console.log('Received Event: ' + id);
+    listeningElement.setAttribute('style', 'display:none;');
+    receivedElement.setAttribute('style', 'display:block;');
   },
   orientationChange: function(e) {
-    alert("orientationChange " + JSON.stringify(window.orientation));
+    alert("orientationChange: " + e);
     var div = document.getElementById('deviceorientationField');
     div.setAttribute('style', 'display:block;');
     if(window.orientation == -90 || window.orientation == 90) {
@@ -42,20 +42,47 @@ var app = {
       div.innerHTML = "portrait";
     }
   },
-  startTest: function(){
-    //alert("startTest");
+  setConnectionBox: function () {
+    var networkState = navigator.connection.type;
+
+    var states = {};
+    states[Connection.UNKNOWN]  = 'Unknown connection';
+    states[Connection.ETHERNET] = 'Ethernet connection';
+    states[Connection.WIFI]     = 'WiFi connection';
+    states[Connection.CELL_2G]  = 'Cell 2G connection';
+    states[Connection.CELL_3G]  = 'Cell 3G connection';
+    states[Connection.CELL_4G]  = 'Cell 4G connection';
+    states[Connection.NONE]     = 'No network connection';
+
+    var box = document.getElementById('connectionField');
+    box.setAttribute('style', 'display:block;');
+//    box.innerHTML = states[networkState];
+    $(box).text(states[networkState]);
+  },
+  
+  orientationTest: function(){
     A.orientationHorizontal(function(msg){
-      //alert("Horizontal " + $('#deviceorientationField').text());
-      var element = $('#deviceorientationField');
-         A.assert(element);
-        A.assertEqual(element.text(), "landscape");
+      alert("Horizontal? " + $('#deviceorientationField').text());
+//      var element = $('#deviceorientationField');
+//      A.assert(element);
+//      A.assertEqual(element.text(), "landscape");
+      /*
+      A.orientationVertical(function(){
+       alert("Vertical " + $('#deviceorientationField').text());
+       var element = $('#deviceorientationField');
+       A.assert(element);
+       A.assertEqual(element.text(), "portrait");
+     });
+     */
     });
+  },
+  connectionTest: function(){
+    alert("connectionTest");
+    A.noNetwork(function(msg){
+      alert("network mode off");
+      app.setConnectionBox();
       
-    /*A.orientationVertical(function(){
-      alert("Vertical " + $('#deviceorientationField').text());
-      var element = $('#deviceorientationField');
-      A.assert(element);
-      A.assertEqual(element.text(), "portrait");
-    });*/
+      A.assert(document.getElementById('connectionField').innerHTML === 'No network connection');
+    });
   }
 };

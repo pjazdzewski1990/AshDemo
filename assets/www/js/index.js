@@ -33,7 +33,6 @@ var app = {
     receivedElement.setAttribute('style', 'display:block;');
   },
   orientationChange: function(e) {
-    alert("orientationChange: " + e);
     var div = document.getElementById('deviceorientationField');
     div.setAttribute('style', 'display:block;');
     if(window.orientation == -90 || window.orientation == 90) {
@@ -62,18 +61,15 @@ var app = {
   
   orientationTest: function(){
     A.orientationHorizontal(function(msg){
-      alert("Horizontal? " + $('#deviceorientationField').text());
-//      var element = $('#deviceorientationField');
-//      A.assert(element);
-//      A.assertEqual(element.text(), "landscape");
-      /*
+      var element = $('#deviceorientationField');
+      A.assert(element);
+      A.assertEqual(element.text(), "landscape");
+      
       A.orientationVertical(function(){
-       alert("Vertical " + $('#deviceorientationField').text());
        var element = $('#deviceorientationField');
        A.assert(element);
-       A.assertEqual(element.text(), "portrait");
+       A.assertEqual(element.text(), "portrait1");
      });
-     */
     });
   },
   connectionTest: function(){

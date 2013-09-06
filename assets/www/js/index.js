@@ -11,9 +11,6 @@ var app = {
       document.addEventListener('deviceready', this.onDeviceReady, false);
       //window.addEventListener("orientationchange", this.orientationChange, true);
       $(window).on("orientationchange", this.orientationChange);
-
-      document.getElementById('orientationTest').addEventListener('click', this.orientationTest, false);
-      document.getElementById('connectionTest').addEventListener('click', this.connectionTest, false);
   },
   // deviceready Event Handler
   //
@@ -22,6 +19,12 @@ var app = {
   onDeviceReady: function() {
     app.receivedEvent('deviceready');
     app.setConnectionBox();
+    
+    if(window.A){
+      document.getElementById('orientationTest').addEventListener('click', tests.orientationTest, false);
+      document.getElementById('connectionTest').addEventListener('click', tests.connectionTest, false);
+      tests.runAll();
+    }
   },
   // Update DOM on a Received Event
   receivedEvent: function(id) {
@@ -57,28 +60,5 @@ var app = {
     box.setAttribute('style', 'display:block;');
 //    box.innerHTML = states[networkState];
     $(box).text(states[networkState]);
-  },
-  
-  orientationTest: function(){
-    A.orientationHorizontal(function(msg){
-      var element = $('#deviceorientationField');
-      A.assert(element);
-      A.assertEqual(element.text(), "landscape");
-      
-      A.orientationVertical(function(){
-       var element = $('#deviceorientationField');
-       A.assert(element);
-       A.assertEqual(element.text(), "portrait1");
-     });
-    });
-  },
-  connectionTest: function(){
-    alert("connectionTest");
-    A.noNetwork(function(msg){
-      alert("network mode off");
-      app.setConnectionBox();
-      
-      A.assert(document.getElementById('connectionField').innerHTML === 'No network connection');
-    });
   }
 };

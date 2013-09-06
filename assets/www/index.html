@@ -28,11 +28,29 @@
             <button type="submit" id="connectionTest" class="testButton">
                 Test Connection
             </button>
+            
+            <table dir="ltr" width="500" border="1">
+                <caption> Test results </caption>
+                <colgroup width="50%" />
+                <colgroup id="colgroup" class="colgroup" align="center" 
+                 valign="middle" title="title" width="1*" 
+                 span="2" style="background:#ddd;" />
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Result</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody"></tbody>
+            </table>
         </div>
+        
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/jquery.js"></script>
-        <script type="text/javascript" src="js/Ash.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
+        <!--         <ash include="true"/> -->
+        <script type="text/javascript" src="js/Ash.js"></script>
+        <script type="text/javascript" src="test/example.js"></script>
         <script type="text/javascript">
             app.initialize();
         </script>

@@ -12,6 +12,8 @@ if(!window.tests){
        var element = $('#deviceorientationField');
        A.assert(element);
        A.assertEqual(element.text(), "portrait");
+       
+       A.endTest();
      });
     });
   };
@@ -23,6 +25,7 @@ if(!window.tests){
 //      app.setConnectionBox();
 //      
 //      A.assertEqual($('#connectionField').text(), 'No network connection');
+//      A.endTest();
 //    });
 //  };
   
@@ -30,13 +33,10 @@ if(!window.tests){
     var conf = {app: "Ash Demo", appVersion: "0.1", desc: "Demo app for ASH testing framework", key: "demo"};
     A.config(conf).run(this, function(errorData){
       alert("Fail!! " + JSON.stringify(errorData));
-      var failNum = errorData.failure.length;
-      for(var i=0; i<failNum; i++){
-        exampleTests.appendResult(errorData.failure[i].level, errorData.failure[i].message);
-      }
+      exampleTests.appendResult(errorData.level, errorData.message);
     }, function(successData){
       alert("Success!! " + JSON.stringify(successData));
-      exampleTests.appendResult("Success", successData.success.length);
+      exampleTests.appendResult("Success", JSON.stringify(successData));
     })
   };
   

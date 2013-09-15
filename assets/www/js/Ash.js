@@ -1,6 +1,8 @@
 if(!window.A) { 
   var Ash = {};
 
+  Ash._storedErrorCallback = window.onerror;
+  
   Ash.config = function(data){
     this.app = data.app || "";
     this.appVersion = data.appVersion || "";
@@ -11,35 +13,52 @@ if(!window.A) {
     return this;
   },
   
+  Ash.upload = function(resultToUpload){
+   //TODO:
+  },
+  
+  Ash.endTest = null, //setup in Ash.run()
+  
   Ash.run = function(tests, failureCallback, successCallback){
     var testSuite = (Object.prototype.toString.call(tests) === "[object Array]") ? tests : this._extractTests(tests);
     var testSuiteLen = testSuite.length;
-    var results = {testNum: testSuiteLen, success: [], failure: []};
+//    var results = {testNum: testSuiteLen, success: [], failure: []};
     
     //TODO: tests return results in an async manner, runner should be rewritten to meet this demand
-    //  and call callback each time when function finished for good 
-    for(var i in testSuite){
-      try{
-        testSuite[i]();
-        //TODO: gather data about tests run (names, stacktraces, ...)
-        results.success.push(i);
-      }
-      catch(testFailure){
-    	  alert(JSON.stringify(testFailure));
-        var error = this._processException(testFailure);
-        results.failure.push(error);
+    //  and call callback each time when function finished for good
+//    for(var i in testSuite){
+//      testSuite[i]();
+//    }
+    
+    var currentTest = 0; 
+    
+    if(!this.endTest){
+      this.endTest = function(){
+        alert("test End");
+        //TODO: send meaningful data. throw error to obtain stack?
+        successCallback({"foo":"success"});
+        if(currentTest++ < testSuiteLen) testSuite[currentTest]();
       }
     }
     
-    if(results.failure.length === 0){
-      if(typeof(successCallback) === "function"){
-        successCallback(results);
-      }
-    }else{
-      if(typeof(failureCallback) === "function"){
-        failureCallback(results);
-      }
-    }
+    window.onerror = function(errorMsg, url, lineNumber) {
+      alert("ERR:" + errorMsg);
+      failureCallback(this._processException(errorMsg, url, lineNumber));
+      //TODO: find a way of knowing that test ended successfully
+      if(currentTest++ < testSuiteLen) testSuite[currentTest]();
+    };
+    testSuite[currentTest]();
+  },
+  
+  Ash._processException = function(errorMsg, url, lineNumber){
+    //TODO: handle JSON parse failure
+    var testFailure = JSON.parse(errorMsg.replace("Uncaught ", ""));
+    testFailure.level = testFailure.level || "Exception";
+    testFailure.code = testFailure.code || 1;
+    testFailure.message = testFailure.message || "Runtime error";
+    testFailure.url = url;
+    testFailure.lineNumber = lineNumber;
+    return testFailure;
   },
   
   Ash._extractTests = function(testObj){
@@ -57,20 +76,14 @@ if(!window.A) {
     return testSuite;
   },
   
-  Ash._processException = function(testFailure){
-    var level = testFailure.level || "Exception";
-    var code = testFailure.code || 1;
-    var message = testFailure.message || "Runtime error";
-    return {level: level, code: code, message: message};
-  },
-  
   Ash.assert = function(element) {
     if(!element){
       //TODO: rethink exception internals, so they allow easy processing 
       throw {
         level:  "Error",
         code: 2,
-        message: "Element not found!"
+        message: "Element not found!",
+        toString: function(){return JSON.stringify(this);}
       }
     }
   };
@@ -81,7 +94,8 @@ if(!window.A) {
         level:  "Error",
         code: 3,
         message: "Elements " + JSON.stringify(valA).substring(0,20) + 
-          " and " + JSON.stringify(valB).substring(0,20) + " aren't equal!"
+          " and " + JSON.stringify(valB).substring(0,20) + " aren't equal!",
+        toString: function(){return JSON.stringify(this);}
       }
     }
   };

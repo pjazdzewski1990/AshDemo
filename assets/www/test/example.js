@@ -4,17 +4,19 @@ if(!window.tests){
   
   exampleTests.orientationTest = function(){
     A.orientationHorizontal(function(msg){
+    	console.log("ChECK Horizontal");
       var element = $('#deviceorientationField');
       A.assert(element);
       A.assertEqual(element.text(), "landscape");
       
-      A.orientationVertical(function(){
-       var element = $('#deviceorientationField');
-       A.assert(element);
-       A.assertEqual(element.text(), "portrait");
-       
-       A.endTest();
-     });
+//      A.orientationVertical(function(){
+//    	  console.log("ChECK Vertical");
+//        var elementAfter = $('#deviceorientationField');
+//        A.assert(elementAfter);
+//        A.assertEqual(elementAfter.text(), "portrait");
+//       
+//        A.endTest();
+//      });
     });
   };
   

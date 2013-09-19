@@ -23,7 +23,7 @@ var app = {
     if(window.A){
       document.getElementById('orientationTest').addEventListener('click', tests.orientationTest, false);
       document.getElementById('connectionTest').addEventListener('click', tests.connectionTest, false);
-      tests.runAll();
+//      tests.runAll();
     }
   },
   // Update DOM on a Received Event

@@ -3,12 +3,13 @@ if(!window.A) {
 
   Ash._storedErrorCallback = window.onerror;
   
+  Ash.configuration = {},
   Ash.config = function(data){
-    this.app = data.app || "";
-    this.appVersion = data.appVersion || "";
-    this.desc = data.desc || "";
-    this.timestamp = new Date();
-    this.key = data.key || "";
+    this.configuration.app = data.app || "";
+    this.configuration.appVersion = data.appVersion || "";
+    this.configuration.desc = data.desc || "";
+    this.configuration.timestamp = new Date();
+    this.configuration.key = data.key || "";
     
     return this;
   },
@@ -17,7 +18,12 @@ if(!window.A) {
    //TODO:
   },
   
-  Ash.endTest = null, //setup in Ash.run()
+  Ash.endTest = function(){
+    if(this._testSuccess){ // call only if part of test runner
+      this._testSuccess();
+    }
+  }, 
+  Ash._testSuccess = null,  //setup in Ash.run()
   
   Ash.run = function(tests, failureCallback, successCallback){
     var testSuite = (Object.prototype.toString.call(tests) === "[object Array]") ? tests : this._extractTests(tests);
@@ -32,8 +38,8 @@ if(!window.A) {
     
     var currentTest = 0; 
     
-    if(!this.endTest){
-      this.endTest = function(){
+    if(!this._testSuccess){
+      this._testSuccess = function(){
         alert("test End");
         //TODO: send meaningful data. throw error to obtain stack?
         successCallback({"foo":"success"});
@@ -43,7 +49,7 @@ if(!window.A) {
     
     window.onerror = function(errorMsg, url, lineNumber) {
       alert("ERR:" + errorMsg);
-      failureCallback(this._processException(errorMsg, url, lineNumber));
+      failureCallback(Ash._processException(errorMsg, url, lineNumber));
       //TODO: find a way of knowing that test ended successfully
       if(currentTest++ < testSuiteLen) testSuite[currentTest]();
     };
@@ -100,7 +106,7 @@ if(!window.A) {
     }
   };
   
-  Ash.eventTimeout = 30;  //most browsers won't react under 25, 30 seems to work fine 
+  Ash.eventTimeout = 50;  //most browsers won't react under 25 
   
   Ash.orientationHorizontal = function(testSuite) {
     return cordova.exec( 

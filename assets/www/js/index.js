@@ -23,6 +23,7 @@ var app = {
     if(window.A){
       document.getElementById('orientationTest').addEventListener('click', tests.orientationTest, false);
       document.getElementById('connectionTest').addEventListener('click', tests.connectionTest, false);
+      document.getElementById('allTests').addEventListener('click', tests.runAll, false);
 //      tests.runAll();
     }
   },
@@ -36,6 +37,7 @@ var app = {
     receivedElement.setAttribute('style', 'display:block;');
   },
   orientationChange: function(e) {
+    console.log("Orientatino change " + window.orientation);
     var div = document.getElementById('deviceorientationField');
     div.setAttribute('style', 'display:block;');
     if(window.orientation == -90 || window.orientation == 90) {

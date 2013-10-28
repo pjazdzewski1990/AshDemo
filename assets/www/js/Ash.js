@@ -26,8 +26,8 @@ if(!window.A) {
   Ash._testSuccess = null,  //setup in Ash.run()
   
   Ash.run = function(tests, failureCallback, successCallback){
-    var testSuite = (Object.prototype.toString.call(tests) === "[object Array]") ? tests : this._extractTests(tests);
-    var testSuiteLen = testSuite.length;
+    var testsSuite = (Object.prototype.toString.call(tests) === "[object Array]") ? tests : this._extractTests(tests);
+    var testSuiteLen = testsSuite.length;
 //    var results = {testNum: testSuiteLen, success: [], failure: []};
     
     //TODO: tests return results in an async manner, runner should be rewritten to meet this demand
@@ -35,7 +35,7 @@ if(!window.A) {
 //    for(var i in testSuite){
 //      testSuite[i]();
 //    }
-    
+    alert("TESTS: " + JSON.stringify(testsSuite));
     var currentTest = 0; 
     
     if(!this._testSuccess){
@@ -43,7 +43,7 @@ if(!window.A) {
         alert("test End");
         //TODO: send meaningful data. throw error to obtain stack?
         successCallback({"foo":"success"});
-        if(currentTest++ < testSuiteLen) testSuite[currentTest]();
+        if(++currentTest < testSuiteLen) testsSuite[currentTest]();
       }
     }
     
@@ -51,9 +51,9 @@ if(!window.A) {
       alert("ERR:" + errorMsg);
       failureCallback(Ash._processException(errorMsg, url, lineNumber));
       //TODO: find a way of knowing that test ended successfully
-      if(currentTest++ < testSuiteLen) testSuite[currentTest]();
+      if(currentTest++ < testSuiteLen) testsSuite[currentTest]();
     };
-    testSuite[currentTest]();
+    testsSuite[currentTest]();
   },
   
   Ash._processException = function(errorMsg, url, lineNumber){
@@ -75,10 +75,12 @@ if(!window.A) {
     for(var prop in testObj){
       var isFunction = typeof(testObj[prop]) === "function";
       var hasName = prop.indexOf(searchPhrase, this.length - searchPhraseLen) !== -1
+      alert("??" + prop + "?? " + isFunction + "&&" + hasName)
       if(isFunction && hasName){
         testSuite.push(testObj[prop]);
       }
     }
+    alert("testSuite:" + JSON.stringify(testSuite));
     return testSuite;
   },
   
@@ -106,14 +108,14 @@ if(!window.A) {
     }
   };
   
-  Ash.eventTimeout = 50;  //most browsers won't react under 25 
+  Ash.eventTimeout = 1000;  //most browsers won't react under 25 
   
   Ash.orientationHorizontal = function(testSuite) {
     return cordova.exec( 
       function(){
         //FIXME: walkaround for event synchronization problem
-        setTimeout(testSuite, Ash.eventTimeout);
-      }, 
+        setTimeout(function(){console.log("HorizontalTimeout Done");testSuite();}, Ash.eventTimeout);
+      },
       function() { alert("Couldn't call orientationHorizontal"); }, 
       "pl.ug.ash.AshPlugin", 
       "orientationHorizontal", 
@@ -124,7 +126,7 @@ if(!window.A) {
     return cordova.exec( 
       function(){
         //FIXME: walkaround for event synchronization problem
-        setTimeout(testSuite, Ash.eventTimeout);
+        setTimeout(function(){console.log("VerticalTimeout Done");testSuite();}, Ash.eventTimeout);
       },
       function() { alert("Couldn't call orientationVertical"); }, 
       "pl.ug.ash.AshPlugin", 

@@ -4,19 +4,19 @@ if(!window.tests){
   
   exampleTests.orientationTest = function(){
     A.orientationHorizontal(function(msg){
-    	console.log("ChECK Horizontal");
       var element = $('#deviceorientationField');
       A.assert(element);
       A.assertEqual(element.text(), "landscape");
+      console.log("CHECK Horizontal finished");
       
-//      A.orientationVertical(function(){
-//    	  console.log("ChECK Vertical");
-//        var elementAfter = $('#deviceorientationField');
-//        A.assert(elementAfter);
-//        A.assertEqual(elementAfter.text(), "portrait");
-//       
-//        A.endTest();
-//      });
+      A.orientationVertical(function(){
+        console.log("CHECK Vertica start");
+        var elementAfter = $('#deviceorientationField');
+        A.assert(elementAfter);
+        A.assertEqual(elementAfter.text(), "portrait");
+       
+        A.endTest();
+      });
     });
   };
   
@@ -33,7 +33,7 @@ if(!window.tests){
   
   exampleTests.runAll = function(){
     var conf = {app: "Ash Demo", appVersion: "0.1", desc: "Demo app for ASH testing framework", key: "demo"};
-    A.config(conf).run(this, function(errorData){
+    A.config(conf).run(exampleTests, function(errorData){
       alert("Fail!! " + JSON.stringify(errorData));
       exampleTests.appendResult(errorData.level, errorData.message);
     }, function(successData){

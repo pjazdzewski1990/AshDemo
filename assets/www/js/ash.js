@@ -1,10 +1,10 @@
-if(!window.A) { 
-  var Ash = {};
-
-  Ash._storedErrorCallback = window.onerror;
+(function(win){
+  if(!win.A) { win.A = {}; }
+  alert("ash! on " + win);
+  win.A._storedErrorCallback = window.onerror;
   
-  Ash.configuration = {},
-  Ash.config = function(data){
+  win.A.configuration = {},
+  win.A.config = function(data){
     this.configuration.app = data.app || "";
     this.configuration.appVersion = data.appVersion || "";
     this.configuration.desc = data.desc || "";
@@ -14,27 +14,21 @@ if(!window.A) {
     return this;
   },
   
-  Ash.upload = function(resultToUpload){
+  win.A.upload = function(resultToUpload){
    //TODO:
   },
   
-  Ash.endTest = function(){
+  win.A.endTest = function(){
     if(this._testSuccess){ // call only if part of test runner
       this._testSuccess();
     }
   }, 
-  Ash._testSuccess = null,  //setup in Ash.run()
+  win.A._testSuccess = null,  //setup in win.A.run()
   
-  Ash.run = function(tests, failureCallback, successCallback){
+  win.A.run = function(tests, failureCallback, successCallback){
     var testsSuite = (Object.prototype.toString.call(tests) === "[object Array]") ? tests : this._extractTests(tests);
     var testSuiteLen = testsSuite.length;
-//    var results = {testNum: testSuiteLen, success: [], failure: []};
-    
-    //TODO: tests return results in an async manner, runner should be rewritten to meet this demand
-    //  and call callback each time when function finished for good
-//    for(var i in testSuite){
-//      testSuite[i]();
-//    }
+
     alert("TESTS: " + JSON.stringify(testsSuite));
     var currentTest = 0; 
     
@@ -49,14 +43,13 @@ if(!window.A) {
     
     window.onerror = function(errorMsg, url, lineNumber) {
       alert("ERR:" + errorMsg);
-      failureCallback(Ash._processException(errorMsg, url, lineNumber));
-      //TODO: find a way of knowing that test ended successfully
+      failureCallback(win.A._processException(errorMsg, url, lineNumber));
       if(currentTest++ < testSuiteLen) testsSuite[currentTest]();
     };
     testsSuite[currentTest]();
   },
   
-  Ash._processException = function(errorMsg, url, lineNumber){
+  win.A._processException = function(errorMsg, url, lineNumber){
     //TODO: handle JSON parse failure
     var testFailure = JSON.parse(errorMsg.replace("Uncaught ", ""));
     testFailure.level = testFailure.level || "Exception";
@@ -67,7 +60,7 @@ if(!window.A) {
     return testFailure;
   },
   
-  Ash._extractTests = function(testObj){
+  win.A._extractTests = function(testObj){
     var testSuite = [];
     var searchPhrase = "Test";
     var searchPhraseLen = searchPhrase.length;
@@ -75,46 +68,21 @@ if(!window.A) {
     for(var prop in testObj){
       var isFunction = typeof(testObj[prop]) === "function";
       var hasName = prop.indexOf(searchPhrase, this.length - searchPhraseLen) !== -1
-      alert("??" + prop + "?? " + isFunction + "&&" + hasName)
       if(isFunction && hasName){
         testSuite.push(testObj[prop]);
       }
     }
-    alert("testSuite:" + JSON.stringify(testSuite));
     return testSuite;
   },
   
-  Ash.assert = function(element) {
-    if(!element){
-      //TODO: rethink exception internals, so they allow easy processing 
-      throw {
-        level:  "Error",
-        code: 2,
-        message: "Element not found!",
-        toString: function(){return JSON.stringify(this);}
-      }
-    }
-  };
   
-  Ash.assertEqual = function(valA, valB) {
-    if(!(valA === valB)){
-      throw {
-        level:  "Error",
-        code: 3,
-        message: "Elements " + JSON.stringify(valA).substring(0,20) + 
-          " and " + JSON.stringify(valB).substring(0,20) + " aren't equal!",
-        toString: function(){return JSON.stringify(this);}
-      }
-    }
-  };
+  win.A.eventTimeout = 1000;  //most browsers won't react under 25 
   
-  Ash.eventTimeout = 1000;  //most browsers won't react under 25 
-  
-  Ash.orientationHorizontal = function(testSuite) {
+  win.A.orientationHorizontal = function(testSuite) {
     return cordova.exec( 
       function(){
         //FIXME: walkaround for event synchronization problem
-        setTimeout(function(){console.log("HorizontalTimeout Done");testSuite();}, Ash.eventTimeout);
+        setTimeout(function(){console.log("HorizontalTimeout Done");testSuite();}, win.A.eventTimeout);
       },
       function() { alert("Couldn't call orientationHorizontal"); }, 
       "pl.ug.ash.AshPlugin", 
@@ -122,11 +90,11 @@ if(!window.A) {
       []);
   };
   
-  Ash.orientationVertical = function(testSuite) {
+  win.A.orientationVertical = function(testSuite) {
     return cordova.exec( 
       function(){
         //FIXME: walkaround for event synchronization problem
-        setTimeout(function(){console.log("VerticalTimeout Done");testSuite();}, Ash.eventTimeout);
+        setTimeout(function(){console.log("VerticalTimeout Done");testSuite();}, win.A.eventTimeout);
       },
       function() { alert("Couldn't call orientationVertical"); }, 
       "pl.ug.ash.AshPlugin", 
@@ -134,7 +102,7 @@ if(!window.A) {
       []);
   };
   
-  Ash.noNetwork = function(testSuite) {
+  win.A.noNetwork = function(testSuite) {
     return cordova.exec( 
       function(){
         testSuite();
@@ -145,5 +113,4 @@ if(!window.A) {
       []);
   };
   
-  window.A = Ash;
-}
+})(window);

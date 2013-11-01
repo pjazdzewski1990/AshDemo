@@ -1,6 +1,6 @@
 (function(win){
   if(!win.A) { win.A = {}; }
-  alert("Core! on " + win);
+
   win.A.assert = function(element) {
     if(!element){
       //TODO: rethink exception internals, so they allow easy processing 

@@ -1,6 +1,6 @@
 (function(win){
   if(!win.A) { win.A = {}; }
-  alert("ash! on " + win);
+
   win.A._storedErrorCallback = window.onerror;
   
   win.A.configuration = {},
@@ -28,15 +28,12 @@
   win.A.run = function(tests, failureCallback, successCallback){
     var testsSuite = (Object.prototype.toString.call(tests) === "[object Array]") ? tests : this._extractTests(tests);
     var testSuiteLen = testsSuite.length;
-
-    alert("TESTS: " + JSON.stringify(testsSuite));
     var currentTest = 0; 
     
     if(!this._testSuccess){
       this._testSuccess = function(){
-        alert("test End");
         //TODO: send meaningful data. throw error to obtain stack?
-        successCallback({"foo":"success"});
+        successCallback({"index":currentTest, "length":testSuiteLen});
         if(++currentTest < testSuiteLen) testsSuite[currentTest]();
       }
     }

@@ -1,4 +1,5 @@
 (function(win){
+//  alert("core");
   if(!win.A) { win.A = {}; }
 
   win.A.assert = function(element) {
@@ -25,5 +26,17 @@
     }
   };
   
-  //check ash tag and append test suite if turned on
+  win.A.loadTests = function(tests){
+    var script = document.createElement('script');
+    script.src = "js/ash.js";
+    script.onload = function () {
+      //alert("ash loaded! A? " + A);
+      for(var i=0; i<tests.length; i++){
+          var script = document.createElement('script');
+          script.src = tests[0];
+          document.head.appendChild(script);
+      }
+    };
+    document.head.appendChild(script);
+  }
 })(window);

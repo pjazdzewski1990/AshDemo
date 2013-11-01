@@ -1,4 +1,5 @@
 (function(win){
+//  alert("ash");
   if(!win.A) { win.A = {}; }
 
   win.A._storedErrorCallback = window.onerror;

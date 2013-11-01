@@ -52,12 +52,18 @@
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/jquery.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript" src="js/ash-core.js"></script>
-        <script type="text/javascript" src="js/ash.js"></script>
-<!--         <data:ash run="true" test="[test/example.js]"/> -->
-        <script type="text/javascript" src="test/example.js"></script>
         <script type="text/javascript">
             app.initialize();
         </script>
+        <script type="text/javascript" src="js/ash-core.js"></script>
+        <script type="text/javascript">
+          if(true){
+            //alert("loading tests");
+            A.loadTests(["test/example.js"]);
+          }
+        </script>
+<!--         <script type="text/javascript" src="js/ash.js"></script> -->
+<!--         <ash run="true" test='["test/example.js"]'/> -->
+<!--         <script type="text/javascript" src="test/example.js"></script> -->
     </body>
 </html>

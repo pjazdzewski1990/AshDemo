@@ -19,13 +19,6 @@ var app = {
   onDeviceReady: function() {
     app.receivedEvent('deviceready');
     app.setConnectionBox();
-    
-    if(window.A){
-      document.getElementById('orientationTest').addEventListener('click', tests.orientationTest, false);
-      document.getElementById('connectionTest').addEventListener('click', tests.connectionTest, false);
-      document.getElementById('allTests').addEventListener('click', tests.runAll, false);
-//      tests.runAll();
-    }
   },
   // Update DOM on a Received Event
   receivedEvent: function(id) {

@@ -1,5 +1,6 @@
 
-if(!window.tests){
+(function(win){
+  //alert("Example tests");
   var exampleTests = {};
   
   exampleTests.orientationTest = function(){
@@ -37,7 +38,7 @@ if(!window.tests){
       alert("Fail!! " + JSON.stringify(errorData));
       exampleTests.appendResult(errorData.level, errorData.message);
     }, function(successData){
-      alert("Success!! " + JSON.stringify(successData));
+      //alert("Success!! " + JSON.stringify(successData));
       exampleTests.appendResult("Success", JSON.stringify(successData));
     })
   };
@@ -47,5 +48,10 @@ if(!window.tests){
     $('#tableBody').append(tableRow);
   };
   
-  window.tests = exampleTests;
-};
+  document.getElementById('orientationTest').addEventListener('click', exampleTests.orientationTest, false);
+  document.getElementById('connectionTest').addEventListener('click', exampleTests.connectionTest, false);
+  document.getElementById('allTests').addEventListener('click', exampleTests.runAll, false);
+  
+  win.tests = exampleTests;
+  exampleTests.runAll();
+})(window);

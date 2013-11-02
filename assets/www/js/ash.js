@@ -4,6 +4,8 @@
 
   win.A._storedErrorCallback = window.onerror;
   
+  win.A.uploadServer = "http://192.168.0.1:3000/results";
+  
   win.A.configuration = {},
   win.A.config = function(data){
     this.configuration.app = data.app || "";
@@ -16,7 +18,10 @@
   },
   
   win.A.upload = function(resultToUpload){
-   //TODO:
+    var params = "result[json]=" + resultToUpload;
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("POST", win.A.uploadServer, true);
+    xmlhttp.send(params);
   },
   
   win.A.endTest = function(){

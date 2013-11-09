@@ -118,3 +118,9 @@ h1 {
     width: 150px;
     height: 60px
 }
+
+#resultTable {
+    width:70%; 
+    margin-left:15%; 
+    margin-right:15%;
+}

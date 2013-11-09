@@ -1,26 +1,19 @@
 var app = {
-  // Application Constructor
   initialize: function() {
-      this.bindEvents();
+    this.bindEvents();
   },
-  // Bind Event Listeners
-  //
-  // Bind any events that are required on startup. Common events are:
-  // 'load', 'deviceready', 'offline', and 'online'.
+  
   bindEvents: function() {
-      document.addEventListener('deviceready', this.onDeviceReady, false);
-      //window.addEventListener("orientationchange", this.orientationChange, true);
-      $(window).on("orientationchange", this.orientationChange);
+    document.addEventListener('deviceready', this.onDeviceReady, false);
+    $(window).on("orientationchange", this.orientationChange);
+    $("#recordButton").on("click", this.recordAudio);
   },
-  // deviceready Event Handler
-  //
-  // The scope of 'this' is the event. In order to call the 'receivedEvent'
-  // function, we must explicity call 'app.receivedEvent(...);'
+  
   onDeviceReady: function() {
     app.receivedEvent('deviceready');
     app.setConnectionBox();
   },
-  // Update DOM on a Received Event
+  
   receivedEvent: function(id) {
     var parentElement = document.getElementById(id);
     var listeningElement = parentElement.querySelector('.listening');
@@ -29,8 +22,8 @@ var app = {
     listeningElement.setAttribute('style', 'display:none;');
     receivedElement.setAttribute('style', 'display:block;');
   },
+  
   orientationChange: function(e) {
-    console.log("Orientatino change " + window.orientation);
     var div = document.getElementById('deviceorientationField');
     div.setAttribute('style', 'display:block;');
     if(window.orientation == -90 || window.orientation == 90) {
@@ -39,6 +32,7 @@ var app = {
       div.innerHTML = "portrait";
     }
   },
+  
   setConnectionBox: function () {
     var networkState = navigator.connection.type;
 
@@ -53,7 +47,26 @@ var app = {
 
     var box = document.getElementById('connectionField');
     box.setAttribute('style', 'display:block;');
-//    box.innerHTML = states[networkState];
     $(box).text(states[networkState]);
+  },
+  
+  captureSuccess: function(mediaFiles) {
+    $('#recordDiv').addClass("blink");
+    
+    var field = $('#recordField');
+//    field.removeClass("listening");
+//    field.addClass("received");
+    field.html(mediaFiles[0].name);
+    
+    field.on('tap', function(e){
+      mediaFiles[0].play();
+    });
+  },
+  
+  recordAudio: function() {
+    var captureError = function(error) { 
+      alert("Blad! " + JSON.stringify(error));
+    };
+    navigator.device.capture.captureAudio(this.captureSuccess, captureError, {limit:1});
   }
 };

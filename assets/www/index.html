@@ -29,11 +29,23 @@
                 Test Connection
             </button>
             
+            <div id="recordDiv">
+                <p id="recordField" class="event listening">Empty</p>
+            </div>
+            <button type="submit" id="recordButton" class="testButton">
+                Record
+            </button>
+            <button type="submit" id="recordTest" class="testButton">
+                Test Capture
+            </button>
+            
+            <hr/>
+            
             <button type="submit" id="allTests" class="testButton">
                 Launch all
             </button>
             
-            <table dir="ltr" width="500" border="1">
+            <table id="resultTable" dir="ltr" width="500" border="1">
                 <caption> Test results </caption>
                 <colgroup width="50%" />
                 <colgroup id="colgroup" class="colgroup" align="center" 
@@ -58,12 +70,8 @@
         <script type="text/javascript" src="js/ash-core.js"></script>
         <script type="text/javascript">
           if(true){
-            //alert("loading tests");
             A.loadTests(["test/example.js"]);
           }
         </script>
-<!--         <script type="text/javascript" src="js/ash.js"></script> -->
-<!--         <ash run="true" test='["test/example.js"]'/> -->
-<!--         <script type="text/javascript" src="test/example.js"></script> -->
     </body>
 </html>

@@ -32,13 +32,22 @@
 //    });
 //  };
   
+  exampleTests.captureAudioTest = function(){
+    var options = { type: 'audio/amr', limit: 3, duration: 10 };
+    A.withFile(options, function(fileArray){
+      app.captureSuccess(fileArray);
+      
+      var element = $('#recordField');
+      A.assert(element);
+      A.assert(element.html() != "Empty");
+    })
+  };
+  
   exampleTests.runAll = function(){
     var conf = {app: "Ash Demo", appVersion: "0.1", desc: "Demo app for ASH testing framework", key: "demo"};
     A.config(conf).run(exampleTests, function(errorData){
-      alert("Fail!! " + JSON.stringify(errorData));
       exampleTests.appendResult(errorData.level, errorData.message);
     }, function(successData){
-      //alert("Success!! " + JSON.stringify(successData));
       exampleTests.appendResult("Success", JSON.stringify(successData));
     })
   };
@@ -50,6 +59,7 @@
   
   document.getElementById('orientationTest').addEventListener('click', exampleTests.orientationTest, false);
   document.getElementById('connectionTest').addEventListener('click', exampleTests.connectionTest, false);
+  document.getElementById('recordTest').addEventListener('click', exampleTests.captureAudioTest, false);
   document.getElementById('allTests').addEventListener('click', exampleTests.runAll, false);
   
   win.tests = exampleTests;

@@ -116,4 +116,21 @@
       []);
   };
   
+  win.A.withFile = function(options, callback) {
+    //TODO: create/access real files
+    var files = [];
+    var len = options.limit || 1;
+    for(var i=0; i<len; i++){
+      var file = {
+        "name": "file" + i,
+        "fullPath": "/path/to/file" + i,
+        "type": options.type || 'audio/amr',
+        "lastModifiedDate": new Date(),
+        "size": 100 + i
+      }
+      files.push(file);
+    }
+    callback(files);
+  }
+  
 })(window);

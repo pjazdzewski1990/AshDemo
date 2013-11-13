@@ -40,7 +40,21 @@
       var element = $('#recordField');
       A.assert(element);
       A.assert(element.html() != "Empty");
+      
+      A.endTest();
     })
+  };
+  
+  exampleTests.locationTest = function(){
+    var startPos = {latitude: 0, longitude: 0};
+    var moveOptions = {latitude: 100, longitude: 50, steps: 10};
+    A.onMove(startPos, moveOptions, function(currentPosition){
+      app.positionChanged(currentPosition);
+      
+      var elementString = $('#locationField').html();
+      var targetString = currentPosition.coords.latitude + ' ' + currentPosition.coords.longitude;
+      A.assertEqual(elementString, targetString);
+    });
   };
   
   exampleTests.runAll = function(){
@@ -57,9 +71,11 @@
     $('#tableBody').append(tableRow);
   };
   
+  //TODO: move it out of here
   document.getElementById('orientationTest').addEventListener('click', exampleTests.orientationTest, false);
   document.getElementById('connectionTest').addEventListener('click', exampleTests.connectionTest, false);
   document.getElementById('recordTest').addEventListener('click', exampleTests.captureAudioTest, false);
+  document.getElementById('locationTest').addEventListener('click', exampleTests.captureLocationTest, false);
   document.getElementById('allTests').addEventListener('click', exampleTests.runAll, false);
   
   win.tests = exampleTests;

@@ -131,6 +131,27 @@
       files.push(file);
     }
     callback(files);
-  }
+  };
+  
+  win.A.onMove = function(startPos, options, callback) {
+    //TODO: emulate instead of only simulating
+    var steps = options.steps || 1;
+    
+    var startLatitude = startPos.latitude || 0;
+    var destinationLatitude = options.latitude || 0;
+    var skipLatitude = (destinationLatitude - startLatitude)/steps;
+    
+    var startLongitude = startPos.longitude || 0;
+    var destinationLongitude = options.longitude || 0;
+    var skipLongitude = (destinationLongitude - startLongitude)/steps;
+
+    for(var i=0; i<=steps; i++){
+      var lat = startLatitude + i*skipLatitude;
+      var long = startLongitude = i*skipLongitude;
+      var position = {"coords" : {"latitude": lat, "longitude": long}};
+      callback(position);
+    }
+    A.endTest();
+  };
   
 })(window);

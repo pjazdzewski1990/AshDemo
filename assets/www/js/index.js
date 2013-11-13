@@ -12,6 +12,8 @@ var app = {
   onDeviceReady: function() {
     app.receivedEvent('deviceready');
     app.setConnectionBox();
+    
+    app.setGeoCapture();
   },
   
   receivedEvent: function(id) {
@@ -68,5 +70,26 @@ var app = {
       alert("Blad! " + JSON.stringify(error));
     };
     navigator.device.capture.captureAudio(this.captureSuccess, captureError, {limit:1});
+  },
+  
+  setGeoCapture: function(){
+    var error = function(err){
+      console.log("Err" + JSON.stringify(err));
+    };
+    
+    navigator.geolocation.watchPosition(
+      app.positionChanged, 
+      error, 
+      {timeout: 300});
+  },
+  
+  positionChanged: function(position) {
+    console.log("positionChange" + JSON.stringify(position));
+    $('#locationDiv').addClass("blink");
+    $('#locationField').
+      html(position.coords.latitude + ' ' + position.coords.longitude).
+      css("display", "block");
   }
 };
+//TODO: make a self-calling function
+window.app = app;

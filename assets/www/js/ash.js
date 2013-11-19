@@ -4,6 +4,11 @@
 
   win.A._storedErrorCallback = window.onerror;
   
+  //test callbacks
+  // before/after - called on every test
+  // XTest - called on suite start
+  win.A.beforeTest = win.A.afterTest = win.A.before = win.A.after = null;
+  
   win.A.uploadServer = "http://192.168.0.1:3000/results";
   
   win.A.configuration = {},
@@ -36,19 +41,36 @@
     var testSuiteLen = testsSuite.length;
     var currentTest = 0; 
     
+    if(win.A.beforeTest) win.A.beforeTest();
+    
     if(!this._testSuccess){
+      if(win.A.after) win.A.after();
+      
       this._testSuccess = function(){
         //TODO: send meaningful data. throw error to obtain stack?
         successCallback({"index":currentTest, "length":testSuiteLen});
-        if(++currentTest < testSuiteLen) testsSuite[currentTest]();
+        if(++currentTest < testSuiteLen) {
+          if(win.A.before) win.A.before();
+          testsSuite[currentTest]();
+        }else{
+          if(win.A.afterTest) win.A.afterTest();
+        }
       }
     }
     
     window.onerror = function(errorMsg, url, lineNumber) {
+      if(win.A.after) win.A.after();
       alert("ERR:" + errorMsg);
       failureCallback(win.A._processException(errorMsg, url, lineNumber));
-      if(currentTest++ < testSuiteLen) testsSuite[currentTest]();
+      if(currentTest++ < testSuiteLen) {
+        if(win.A.before) win.A.before();
+        testsSuite[currentTest]();
+      }else{
+        if(win.A.afterTest) win.A.afterTest();
+      }
     };
+    
+    if(win.A.before) win.A.before();
     testsSuite[currentTest]();
   },
   

@@ -1,7 +1,12 @@
 
 (function(win){
-  //alert("Example tests");
   var exampleTests = {};
+  
+  //setup test callbacks
+  win.A.beforeTest = function(){console.log("Before Test");};
+  win.A.afterTest = function(){console.log("After Test");};
+  win.A.before = function(){console.log("Before");};
+  win.A.after = function(){console.log("After");};;
   
   exampleTests.orientationTest = function(){
     A.orientationHorizontal(function(msg){

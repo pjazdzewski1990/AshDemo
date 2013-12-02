@@ -14,6 +14,23 @@
     }
   };
   
+  win.A.visible = function(element) {
+    var outOfScreen = function(){
+      var height = element.clientHeight;
+      var width = element.clientWidth;
+      var vertical = element.offsetTop + height < 0 || 
+        element.offsetTop > document.body.offsetHeight;
+      var horizontal = element.offsetLeft + width < 0 || 
+        element.offsetLeft > document.body.offsetWidth;
+      return vertical || horizontal
+    };
+    
+    return element.style.display == "none" || 
+      ["hidden", "collapse"].indexOf(element.style.visibility)>-1 || 
+      outOfScreen() || 
+      element.hidden;
+  };
+  
   win.A.equal = function(valA, valB) {
     if(!(valA === valB)){
       throw {

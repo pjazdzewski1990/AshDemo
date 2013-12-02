@@ -14,7 +14,7 @@
     }
   };
   
-  win.A.assertEqual = function(valA, valB) {
+  win.A.equal = function(valA, valB) {
     if(!(valA === valB)){
       throw {
         level:  "Error",

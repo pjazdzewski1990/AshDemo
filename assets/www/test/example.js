@@ -12,14 +12,14 @@
     A.orientationHorizontal(function(msg){
       var element = $('#deviceorientationField');
       A.assert(element);
-      A.assertEqual(element.text(), "landscape");
+      A.equal(element.text(), "landscape");
       console.log("CHECK Horizontal finished");
       
       A.orientationVertical(function(){
         console.log("CHECK Vertica start");
         var elementAfter = $('#deviceorientationField');
         A.assert(elementAfter);
-        A.assertEqual(elementAfter.text(), "portrait");
+        A.equal(elementAfter.text(), "portrait");
        
         A.endTest();
       });
@@ -58,7 +58,7 @@
       
       var elementString = $('#locationField').html();
       var targetString = currentPosition.coords.latitude + ' ' + currentPosition.coords.longitude;
-      A.assertEqual(elementString, targetString);
+      A.equal(elementString, targetString);
     });
   };
   

@@ -7,6 +7,8 @@ var app = {
     document.addEventListener('deviceready', this.onDeviceReady, false);
     $(window).on("orientationchange", this.orientationChange);
     $("#recordButton").on("click", this.recordAudio);
+    $("#hideButton").on("click", this.hideElements);
+    $("#showButton").on("click", this.showElements);
   },
   
   onDeviceReady: function() {
@@ -64,14 +66,14 @@ var app = {
       mediaFiles[0].play();
     });
   },
-  
+
   recordAudio: function() {
     var captureError = function(error) { 
       alert("Blad! " + JSON.stringify(error));
     };
     navigator.device.capture.captureAudio(this.captureSuccess, captureError, {limit:1});
   },
-  
+
   setGeoCapture: function(){
     var error = function(err){
       console.log("Err" + JSON.stringify(err));
@@ -82,13 +84,25 @@ var app = {
       error, 
       {timeout: 300});
   },
-  
+
   positionChanged: function(position) {
     console.log("positionChange" + JSON.stringify(position));
     $('#locationDiv').addClass("blink");
     $('#locationField').
       html(position.coords.latitude + ' ' + position.coords.longitude).
       css("display", "block");
+  },
+
+  hideElements: function() {
+//    $('#visibilityHiddenField').css("visibility", "hidden");
+    $('#displayNoneField').css("display", "none");
+//    $('#outOfScreenField').offset({ top: 5000, left: 5000});
+  },
+
+  showElements: function() {
+//    $('#visibilityHiddenField').css("visibility", "visible");
+    $('#displayNoneField').css("display", "block");
+//    $('#outOfScreenField').offset({ top: 1100, left: 450});
   }
 };
 //TODO: make a self-calling function

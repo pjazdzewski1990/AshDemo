@@ -176,4 +176,26 @@
     A.endTest();
   };
   
+  //TODO: move this part to ash-navigation
+  win.A.isOnPage = function(pageObject) {
+    if(typeof(pageObject["validate"]) === "function") {
+      var onPage = pageObject["validate"]();
+      if(onPage === false){
+        throw {
+          level:  "Error",
+          code: 11,
+          message: "Not on page!",
+          toString: function(){return JSON.stringify(this);}
+        }
+      }
+    }else{
+      throw {
+        level:  "Error",
+        code: 12,
+        message: "Page element doesn't implement required method!",
+        toString: function(){return JSON.stringify(this);}
+      }
+    }
+  };
+  
 })(window);

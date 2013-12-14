@@ -59,6 +59,9 @@
       var elementString = $('#locationField').html();
       var targetString = currentPosition.coords.latitude + ' ' + currentPosition.coords.longitude;
       A.equal(elementString, targetString);
+      
+      if(currentPosition.coords.latitude == moveOptions.latitude || currentPosition.coords.longitude == moveOptions.longitude)
+        A.endTest();
     });
   };
   
@@ -79,6 +82,24 @@
 //    A.visible($("#visibilityHiddenField"));
     A.visible($("#displayNoneField"));
 //    A.visible($("#outOfScreenField"));
+    
+    A.endTest();
+  };
+
+  exampleTests.gotoAdvertPageObject = {
+    //check if we are on correct sub-page
+    validate: function(){
+      console.log("Check if on advertisement page");
+      var bg = $('.app').css('background-image');
+      bg.indexOf("img/ad.png") > -1;
+    }
+  };
+  
+  exampleTests.advertTest = function(){
+    $(".app").click();
+    A.isOnPage(exampleTests.gotoAdvertPageObject);
+    $(".app").click();
+    A.endTest();
   };
   
   exampleTests.runAll = function(){

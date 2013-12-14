@@ -9,6 +9,7 @@ var app = {
     $("#recordButton").on("click", this.recordAudio);
     $("#hideButton").on("click", this.hideElements);
     $("#showButton").on("click", this.showElements);
+    $('.app').on("click", this.toggleAdvert);
   },
   
   onDeviceReady: function() {
@@ -103,6 +104,10 @@ var app = {
 //    $('#visibilityHiddenField').css("visibility", "visible");
     $('#displayNoneField').css("display", "block");
 //    $('#outOfScreenField').offset({ top: 1100, left: 450});
+  },
+  
+  toggleAdvert: function() {
+    $('.app').toggleClass("advertisement");
   }
 };
 //TODO: make a self-calling function

@@ -1,7 +1,7 @@
 
 (function(win){
   var exampleTests = {};
-  
+   alert("loaded tests");  
   //setup test callbacks
   win.A.beforeTest = function(){console.log("Before Test");};
   win.A.afterTest = function(){console.log("After Test");};
@@ -9,6 +9,7 @@
   win.A.after = function(){console.log("After");};;
   
   exampleTests.orientationTest = function(){
+    alert("orientation test");
     A.orientationHorizontal(function(msg){
       var element = $('#deviceorientationField');
       A.assert(element);
@@ -38,6 +39,7 @@
 //  };
   
   exampleTests.captureAudioTest = function(){
+   alert("capture audio test");
     var options = { type: 'audio/amr', limit: 3, duration: 10 };
     A.withFile(options, function(fileArray){
       app.captureSuccess(fileArray);
@@ -51,6 +53,7 @@
   };
   
   exampleTests.locationTest = function(){
+   alert("location test");
     var startPos = {latitude: 0, longitude: 0};
     var moveOptions = {latitude: 100, longitude: 50, steps: 10};
     A.onMove(startPos, moveOptions, function(currentPosition){
@@ -67,6 +70,7 @@
   
 
   exampleTests.visibilityTest = function(){
+   alert("visiblity test");
     app.showElements();
     
 //    A.visible($("#visibilityHiddenField")[0]);
@@ -96,6 +100,7 @@
   };
   
   exampleTests.advertTest = function(){
+   alert("ad test");
     $(".app").click();
     A.isOnPage(exampleTests.gotoAdvertPageObject);
     $(".app").click();
@@ -103,6 +108,7 @@
   };
   
   exampleTests.runAll = function(){
+   alert("run all");
     var conf = {app: "Ash Demo", appVersion: "0.1", desc: "Demo app for ASH testing framework", key: "demo"};
     A.config(conf).run(exampleTests, function(errorData){
       exampleTests.appendResult(errorData.level, errorData.message);

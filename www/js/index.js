@@ -17,6 +17,8 @@ var app = {
     app.setConnectionBox();
     
     app.setGeoCapture();
+
+    Ash.loadTests(["test/example.js"]);
   },
   
   receivedEvent: function(id) {
@@ -29,6 +31,7 @@ var app = {
   },
   
   orientationChange: function(e) {
+    alert("orientation change");
     var div = document.getElementById('deviceorientationField');
     div.setAttribute('style', 'display:block;');
     if(window.orientation == -90 || window.orientation == 90) {
@@ -56,6 +59,7 @@ var app = {
   },
   
   captureSuccess: function(mediaFiles) {
+    alert("capture");
     $('#recordDiv').addClass("blink");
     
     var field = $('#recordField');
@@ -69,6 +73,7 @@ var app = {
   },
 
   recordAudio: function() {
+    alert("record");
     var captureError = function(error) { 
       alert("Blad! " + JSON.stringify(error));
     };
@@ -77,7 +82,7 @@ var app = {
 
   setGeoCapture: function(){
     var error = function(err){
-      console.log("Err" + JSON.stringify(err));
+      alert("GeoError " + JSON.stringify(err));
     };
     
     navigator.geolocation.watchPosition(
@@ -87,7 +92,7 @@ var app = {
   },
 
   positionChanged: function(position) {
-    console.log("positionChange" + JSON.stringify(position));
+    alert("positionChanged" + JSON.stringify(position));
     $('#locationDiv').addClass("blink");
     $('#locationField').
       html(position.coords.latitude + ' ' + position.coords.longitude).
@@ -95,18 +100,21 @@ var app = {
   },
 
   hideElements: function() {
+    alert("hide");
 //    $('#visibilityHiddenField').css("visibility", "hidden");
     $('#displayNoneField').css("display", "none");
 //    $('#outOfScreenField').offset({ top: 5000, left: 5000});
   },
 
   showElements: function() {
+    alert("show");
 //    $('#visibilityHiddenField').css("visibility", "visible");
     $('#displayNoneField').css("display", "block");
 //    $('#outOfScreenField').offset({ top: 1100, left: 450});
   },
   
   toggleAdvert: function() {
+    alert("advert");
     $('.app').toggleClass("advertisement");
   }
 };

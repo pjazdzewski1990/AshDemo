@@ -131,6 +131,7 @@ var app = {
   },
   
   toggleAdvert: function() {
+    alert("advert");
     $('.app').toggleClass("advertisement");
   }
 };

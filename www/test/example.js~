@@ -132,5 +132,5 @@ alert(JSON.stringify("errorData: " + errorData));
   document.getElementById('allTests').addEventListener('click', exampleTests.runAll, false);
   
   win.tests = exampleTests;
-  exampleTests.runAll();console.log("log");
+  exampleTests.runAll();
 })(window);

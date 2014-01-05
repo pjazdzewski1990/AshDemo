@@ -95,13 +95,11 @@
     validate: function(){
       console.log("Check if on advertisement page");
       var bg = $('.app').css('background-image');
-      alert("Check if on advertisement page " + bg);
       return bg.indexOf("img/ad.png") > -1;
     }
   };
   
   exampleTests.advertTest = function(){
-    alert("ad test");
     $(".app").click();
     Ash.isOnPage(exampleTests.gotoAdvertPageObject);
     $(".app").click();
@@ -110,11 +108,10 @@
   
   exampleTests.runAll = function(){
     var conf = {app: "Ash Demo", appVersion: "0.1", desc: "Demo app for ASH testing framework", key: "demo"};
-    Ash.config(conf).run([exampleTests.advertTest]/*exampleTests*/, function(errorData){
-alert(JSON.stringify("errorData: " + errorData));
+    Ash.config(conf).run([exampleTests.advertTest, exampleTests.visibilityTest]/*exampleTests*/, function(errorData){
       exampleTests.appendResult(errorData.level, errorData.message);
     }, function(successData){
-      exampleTests.appendResult("Success", JSON.stringify(successData));
+      exampleTests.appendResult("Success", "Test " + successData.index + " out of " + successData.length);
     });
   };
   

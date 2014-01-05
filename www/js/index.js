@@ -117,14 +117,14 @@ var app = {
   },
 
   hideElements: function() {
-    alert("hide");
+    console.log("Hiding elements");
 //    $('#visibilityHiddenField').css("visibility", "hidden");
     $('#displayNoneField').css("display", "none");
 //    $('#outOfScreenField').offset({ top: 5000, left: 5000});
   },
 
   showElements: function() {
-    alert("show");
+    console.log("Showing elements");
 //    $('#visibilityHiddenField').css("visibility", "visible");
     $('#displayNoneField').css("display", "block");
 //    $('#outOfScreenField').offset({ top: 1100, left: 450});

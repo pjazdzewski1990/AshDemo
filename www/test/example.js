@@ -17,7 +17,7 @@
       console.log("CHECK Horizontal finished");
       
       Ash.orientationVertical(function(){
-        console.log("CHECK Vertica start");
+        console.log("CHECK Vertical start");
         var elementAfter = $('#deviceorientationField');
         Ash.assert(elementAfter);
         Ash.equal(elementAfter.text(), "portrait");
@@ -106,7 +106,7 @@
   
   exampleTests.runAll = function(){
     var conf = {app: "Ash Demo", appVersion: "0.1", desc: "Demo app for ASH testing framework", key: "demo"};
-    Ash.config(conf).run([exampleTests.advertTest, exampleTests.visibilityTest, exampleTests.locationTest, exampleTests.captureAudioTest]/*exampleTests*/, function(errorData){
+    Ash.config(conf).run(exampleTests, function(errorData){
       exampleTests.appendResult(errorData.level, errorData.message);
     }, function(successData){
       exampleTests.appendResult("Success", "Test " + successData.index + " out of " + successData.length);

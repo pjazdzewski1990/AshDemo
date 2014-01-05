@@ -122,15 +122,33 @@ alert(JSON.stringify("errorData: " + errorData));
     var tableRow = "<tr><td>" + name + "</td><td>" + result + "</td></tr>";
     $('#tableBody').append(tableRow);
   };
-  
+
   //TODO: move it out of here
-  document.getElementById('orientationTest').addEventListener('click', exampleTests.orientationTest, false);
-  document.getElementById('connectionTest').addEventListener('click', exampleTests.connectionTest, false);
-  document.getElementById('recordTest').addEventListener('click', exampleTests.captureAudioTest, false);
-  document.getElementById('locationTest').addEventListener('click', exampleTests.captureLocationTest, false);
-  document.getElementById('visibilityTest').addEventListener('click', exampleTests.visibilityTest, false);
-  document.getElementById('allTests').addEventListener('click', exampleTests.runAll, false);
+  document.getElementById('orientationTest').addEventListener('click', function(e){
+    e.stopPropagation(); 
+    exampleTests.orientationTest();
+  }, false);
+  document.getElementById('connectionTest').addEventListener('click', function(e){
+    e.stopPropagation();
+    exampleTests.connectionTest();
+  }, false);
+  document.getElementById('recordTest').addEventListener('click', function(e){
+    e.stopPropagation();
+    exampleTests.captureAudioTest();
+  }, false); 
+  document.getElementById('locationTest').addEventListener('click', function(e){
+    e.stopPropagation();
+    exampleTests.captureLocationTest();
+  }, false);
+  document.getElementById('visibilityTest').addEventListener('click', function(e){
+    e.stopPropagation();
+    exampleTests.visibilityTest();
+  }, false);
+  document.getElementById('allTests').addEventListener('click', function(e){
+    e.stopPropagation();
+    exampleTests.runAll();
+  }, false);
   
   win.tests = exampleTests;
-  exampleTests.runAll();console.log("log");
+  exampleTests.runAll();
 })(window);

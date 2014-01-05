@@ -75,7 +75,6 @@ var app = {
   },
   
   captureSuccess: function(mediaFiles) {
-    alert("capture");
     $('#recordDiv').addClass("blink");
     
     var field = $('#recordField');
@@ -109,7 +108,7 @@ var app = {
   },
 
   positionChanged: function(position) {
-    alert("positionChanged" + JSON.stringify(position));
+    console.log("Position Changed new is : " + JSON.stringify(position));
     $('#locationDiv').addClass("blink");
     $('#locationField').
       html(position.coords.latitude + ' ' + position.coords.longitude).

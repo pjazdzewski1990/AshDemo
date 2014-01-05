@@ -39,21 +39,19 @@
 //  };
   
   exampleTests.captureAudioTest = function(){
-   alert("capture audio test");
     var options = { type: 'audio/amr', limit: 3, duration: 10 };
     Ash.withFile(options, function(fileArray){
       app.captureSuccess(fileArray);
       
       var element = $('#recordField');
       Ash.assert(element);
-      Ash.assert(element.html() != "Empty");
+      Ash.equal(element.html(), "file0");
       
       Ash.endTest();
     })
   };
   
   exampleTests.locationTest = function(){
-   alert("location test");
     var startPos = {latitude: 0, longitude: 0};
     var moveOptions = {latitude: 100, longitude: 50, steps: 10};
     Ash.onMove(startPos, moveOptions, function(currentPosition){
@@ -70,7 +68,7 @@
   
 
   exampleTests.visibilityTest = function(){
-    alert("visiblity test");
+    console.log("visiblity test");
     app.showElements();
     
 //    A.visible($("#visibilityHiddenField")[0]);
@@ -108,7 +106,7 @@
   
   exampleTests.runAll = function(){
     var conf = {app: "Ash Demo", appVersion: "0.1", desc: "Demo app for ASH testing framework", key: "demo"};
-    Ash.config(conf).run([exampleTests.advertTest, exampleTests.visibilityTest]/*exampleTests*/, function(errorData){
+    Ash.config(conf).run([exampleTests.advertTest, exampleTests.visibilityTest, exampleTests.locationTest, exampleTests.captureAudioTest]/*exampleTests*/, function(errorData){
       exampleTests.appendResult(errorData.level, errorData.message);
     }, function(successData){
       exampleTests.appendResult("Success", "Test " + successData.index + " out of " + successData.length);

@@ -1,4 +1,7 @@
 var app = {
+  currentScreen: 0,
+  screens: ["#orientationScreen", "#connectionScreen", "#recordScreen", "#locationScreen", "#visibilityScreen"],
+
   initialize: function() {
     this.bindEvents();
   },
@@ -26,9 +29,21 @@ var app = {
       e.stopPropagation();
       app.showElements();
     });
+    $("#prev").on("click", function(e){
+      e.stopPropagation();
+      var pos = (app.currentScreen-1)%app.screens.length;
+      app.gotoScreen(pos>0 ? pos : app.screens.length-1);
+    });
+    $("#next").on("click", function(e){
+      e.stopPropagation();
+      var pos = (app.currentScreen+1)%app.screens.length;
+      app.gotoScreen(pos);
+    });
   },
   
   onDeviceReady: function() {
+    app.gotoScreen(0);
+    
     app.receivedEvent('deviceready');
     app.setConnectionBox();
     
@@ -44,6 +59,12 @@ var app = {
 
     listeningElement.setAttribute('style', 'display:none;');
     receivedElement.setAttribute('style', 'display:block;');
+  },
+    
+  gotoScreen: function(num){
+    $(".screen").hide();
+    $(app.screens[num]).show();
+    app.currentScreen = num;
   },
   
   orientationChange: function(e) {

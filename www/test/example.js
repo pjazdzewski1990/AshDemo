@@ -3,10 +3,10 @@
   var exampleTests = {};
 
   //setup test callbacks
-  win.Ash.beforeClass = function(){ alert("Before Class"); };
-  win.Ash.afterClass = function(){ alert("After Class"); };
-  win.Ash.before = function(){ alert("Before"); };
-  win.Ash.after = function(){ alert("After"); };
+  win.Ash.beforeClass = function(){ console.log("Before Class"); };
+  win.Ash.afterClass = function(){ console.log("After Class"); };
+  win.Ash.before = function(){ console.log("Before"); };
+  win.Ash.after = function(){ console.log("After"); };
   
   exampleTests.orientationTest = function(){
     Ash.orientationHorizontal(function(msg){

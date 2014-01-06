@@ -15,38 +15,47 @@
                 <p class="event received">Device is Ready</p>
             </div>
             
-            <div class="blink">
+            <div id="orientationScreen" class="screen">
+              <div class="blink">
                 <p id="deviceorientationField" class="event received">Empty</p>
-            </div>
-            <button type="submit" id="orientationTest" class="testButton">
+              </div>
+              <button type="submit" id="orientationTest" class="testButton">
                 Test Orientation
-            </button>
+              </button>
+            </div>
             
-            <div class="blink">
+            <div id="connectionScreen" class="screen">
+              <div class="blink">
                 <p id="connectionField" class="event received">Empty</p>
-            </div>
-            <button type="submit" id="connectionTest" class="testButton">
+              </div>
+              <button type="submit" id="connectionTest" class="testButton">
                 Test Connection
-            </button>
+              </button>
+            </div>
             
-            <div id="recordDiv">
+            <div id="recordScreen" class="screen">
+              <div id="recordDiv">
                 <p id="recordField" class="event received">Empty</p>
-            </div>
-            <button type="submit" id="recordButton" class="testButton">
+              </div>
+              <button type="submit" id="recordButton" class="testButton">
                 Record
-            </button>
-            <button type="submit" id="recordTest" class="testButton">
+              </button>
+              <button type="submit" id="recordTest" class="testButton">
                 Test Capture
-            </button>
-            
-            <div id="locationDiv">
-                <p id="locationField" class="event received">---</p>
+              </button>
             </div>
-            <button type="submit" id="locationTest" class="testButton">
-                Test Location
-            </button>
             
-            <div id="visibilityDiv">
+            <div id="locationScreen" class="screen">
+              <div id="locationDiv">
+                <p id="locationField" class="event received">---</p>
+              </div>
+              <button type="submit" id="locationTest" class="testButton">
+                Test Location
+              </button>
+            </div>
+            
+            <div id="visibilityScreen" class="screen">
+              <div id="visibilityDiv">
 <!--                 <button type="submit" id="visibilityHiddenField" class="">visibility:hidden</button> -->
                 <button type="submit" id="displayNoneField" class="">display:none</button>
 <!--                 <button type="submit" id="outOfScreenField" class="">Out of Screen</button> -->
@@ -56,10 +65,11 @@
                 <button type="submit" id="showButton" class="testButton">
                   Show
                 </button>
-            </div>
-            <button type="submit" id="visibilityTest" class="testButton">
+              </div>
+              <button type="submit" id="visibilityTest" class="testButton">
                 Test Visibility
-            </button>
+              </button>
+            </div>
             
             <hr/>
             
@@ -81,6 +91,14 @@
                 </thead>
                 <tbody id="tableBody"></tbody>
             </table>
+            
+            <!-- TODO: later replace buttons with swipe -->
+            <button type="submit" id="next" class="testButton">
+                NEXT
+              </button>
+            <button type="submit" id="prev" class="testButton">
+                PREV
+              </button>
         </div>
         
         <script type="text/javascript" src="cordova.js"></script>

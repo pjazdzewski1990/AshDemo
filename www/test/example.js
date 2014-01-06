@@ -9,7 +9,6 @@
   win.Ash.after = function(){ alert("After"); };
   
   exampleTests.orientationTest = function(){
-    alert("orientation test");
     Ash.orientationHorizontal(function(msg){
       var element = $('#deviceorientationField');
       Ash.assert(element);

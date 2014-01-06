@@ -47,7 +47,6 @@ var app = {
   },
   
   orientationChange: function(e) {
-    alert("orientation change");
     var div = document.getElementById('deviceorientationField');
     div.setAttribute('style', 'display:block;');
     if(window.orientation == -90 || window.orientation == 90) {

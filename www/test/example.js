@@ -8,7 +8,10 @@
   win.Ash.before = function(){ console.log("Before"); };
   win.Ash.after = function(){ console.log("After"); };
   
+  exampleTests.conf = {app: "Ash Demo", appVersion: "0.1", desc: "Demo app for ASH testing framework", key: "demo"};
+  
   exampleTests.orientationTest = function(){
+    alert("orientationTest");
     Ash.orientationHorizontal(function(msg){
       var element = $('#deviceorientationField');
       Ash.assert(element);
@@ -26,16 +29,17 @@
     });
   };
   
-//  exampleTests.connectionTest = function(){
-//    alert("connectionTest");
-//    A.noNetwork(function(msg){
+  exampleTests.connectionTest = function(){
+    alert("connectionTest - TODO");
+    Ash.endTest();
+//    Ash.noNetwork(function(msg){
 //      alert("network mode off");
 //      app.setConnectionBox();
 //      
-//      A.assertEqual($('#connectionField').text(), 'No network connection');
-//      A.endTest();
+//      Ash.equal($('#connectionField').text(), 'No network connection');
+//      Ash.endTest();
 //    });
-//  };
+  };
   
   exampleTests.captureAudioTest = function(){
     var options = { type: 'audio/amr', limit: 3, duration: 10 };
@@ -47,7 +51,7 @@
       Ash.equal(element.html(), "file0");
       
       Ash.endTest();
-    })
+    });
   };
   
   exampleTests.locationTest = function(){
@@ -65,7 +69,6 @@
     });
   };
   
-
   exampleTests.visibilityTest = function(){
     console.log("visiblity test");
     app.showElements();
@@ -86,29 +89,98 @@
     
     Ash.endTest();
   };
-
-  exampleTests.gotoAdvertPageObject = {
-    //check if we are on correct sub-page
-    validate: function(){
-      console.log("Check if on advertisement page");
-      var bg = $('.app').css('background-image');
-      return bg.indexOf("img/ad.png") > -1;
-    }
-  };
-  
+    
   exampleTests.advertTest = function(){
     $(".app").click();
-    Ash.isOnPage(exampleTests.gotoAdvertPageObject);
+    Ash.isOnPage(exampleTests.advertSubpageObject);
     $(".app").click();
     Ash.endTest();
   };
-  
+
+  exampleTests.advertSubpageObject = {
+    //check if we are on correct sub-page
+    validate: function(){
+      console.log("Check if advertisement subpage is present");
+      var bg = $('.app').css('background-image');
+      return bg.indexOf("img/ad.png") > -1;
+    },
+    goto: function(){
+      console.log("Going to advertisement subpage");
+      //true because the advert is always visible
+      return true;
+    }
+  };
+
+  exampleTests.orientationPageObject = {
+    //check if we are on correct sub-page
+    validate: function(){
+      console.log("Check if on orientation page");
+      var screen = document.getElementById('orientationScreen');
+      //TODO: visible (and others) throw exceptions, so it's hard to use them outside tests
+      try{
+        Ash.visible(screen);
+      }
+      catch(e){
+        return false;
+      }
+      return true;
+    },
+    goto: function(){
+      console.log("Going to orientation page");
+      if(!this.validate()) app.gotoScreen(0);
+      return true;
+    }
+  };
+    
+  exampleTests.connectionPageObject = {
+    //check if we are on correct sub-page
+    validate: function(){
+      console.log("Check if on connection page");
+      var screen = document.getElementById('connectionScreen');
+      //TODO: visible (and others) throw exceptions, so it's hard to use them outside tests
+      try{
+        Ash.visible(screen);
+      }
+      catch(e){
+        return false;
+      }
+      return true;
+    },
+    goto: function(){
+      console.log("Going to connection page");
+      if(!this.validate()) app.gotoScreen(1);
+      return true;
+    }
+  };
+
+  exampleTests.demoTripScenario = [
+      {
+          name: "Orientation Step",
+          where: exampleTests.orientationPageObject,
+          what: [exampleTests.orientationTest],
+          howLong: 5000
+      },
+      {
+          name: "Connection Step",
+          where: exampleTests.connectionPageObject,
+          what: [exampleTests.connectionTest],
+          howLong: 5000
+      }
+  ];
+
   exampleTests.runAll = function(){
-    var conf = {app: "Ash Demo", appVersion: "0.1", desc: "Demo app for ASH testing framework", key: "demo"};
-    Ash.config(conf).run(exampleTests, function(errorData){
+    Ash.config(exampleTests.conf).run(exampleTests, function(errorData){
       exampleTests.appendResult(errorData.level, errorData.message);
     }, function(successData){
-      exampleTests.appendResult("Success", "Test " + successData.index + " out of " + successData.length);
+      exampleTests.appendResult("Test Success", "Test " + successData.index + " out of " + successData.length);
+    });
+  };
+    
+  exampleTests.playAll = function(){
+    Ash.config(exampleTests.conf).play(exampleTests.demoTripScenario, function(errorData){
+      exampleTests.appendResult(errorData.level, errorData.message);
+    }, function(successData){
+      exampleTests.appendResult("Scenario Step Success", "Scenario demo trip step succeeded");
     });
   };
   
@@ -140,7 +212,7 @@
   }, false);
   document.getElementById('allTests').addEventListener('click', function(e){
     e.stopPropagation();
-    exampleTests.runAll();
+    exampleTests.playAll();
   }, false);
   
   win.tests = exampleTests;

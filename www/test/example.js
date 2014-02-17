@@ -11,7 +11,7 @@
   exampleTests.conf = {app: "Ash Demo", appVersion: "0.1", desc: "Demo app for ASH testing framework", key: "demo"};
   
   exampleTests.orientationTest = function(){
-    alert("orientationTest");
+    console.log("orientationTest");
     Ash.orientationHorizontal(function(msg){
       var element = $('#deviceorientationField');
       Ash.assert(element);
@@ -30,7 +30,7 @@
   };
   
   exampleTests.connectionTest = function(){
-    alert("connectionTest - TODO");
+    console.log("connectionTest - TODO");
     Ash.endTest();
 //    Ash.noNetwork(function(msg){
 //      alert("network mode off");
@@ -74,17 +74,23 @@
     app.showElements();
     
 //    A.visible($("#visibilityHiddenField")[0]);
+    Ash.visible($("#displayNoneField"));
+    Ash.visible($("#displayNoneField").toArray());
     Ash.visible($("#displayNoneField")[0]);
 //    A.visible($("#outOfScreenField")[0]);
     app.hideElements();
     
 //    A.invisible($("#visibilityHiddenField")[0]);
+    Ash.invisible($("#displayNoneField"));
+    Ash.invisible($("#displayNoneField").toArray());
     Ash.invisible($("#displayNoneField")[0]);
 //    A.invisible($("#outOfScreenField")[0]);
     app.showElements();
     
 //    A.visible($("#visibilityHiddenField"));
     Ash.visible($("#displayNoneField"));
+    Ash.visible($("#displayNoneField").toArray());
+    Ash.visible($("#displayNoneField")[0]);
 //    A.visible($("#outOfScreenField"));
     
     Ash.endTest();
@@ -116,18 +122,11 @@
     validate: function(){
       console.log("Check if on orientation page");
       var screen = document.getElementById('orientationScreen');
-      //TODO: visible (and others) throw exceptions, so it's hard to use them outside tests
-      try{
-        Ash.visible(screen);
-      }
-      catch(e){
-        return false;
-      }
-      return true;
+      return Ash.isVisible(screen);
     },
     goto: function(){
       console.log("Going to orientation page");
-      if(!this.validate()) app.gotoScreen(0);
+      if(!this.validate()) app.mySwipe.slide(0, 1);//app.gotoScreen(0);
       return true;
     }
   };
@@ -137,18 +136,11 @@
     validate: function(){
       console.log("Check if on connection page");
       var screen = document.getElementById('connectionScreen');
-      //TODO: visible (and others) throw exceptions, so it's hard to use them outside tests
-      try{
-        Ash.visible(screen);
-      }
-      catch(e){
-        return false;
-      }
-      return true;
+      return Ash.isVisible(screen);
     },
     goto: function(){
       console.log("Going to connection page");
-      if(!this.validate()) app.gotoScreen(1);
+      if(!this.validate()) app.mySwipe.slide(1, 1);
       return true;
     }
   };

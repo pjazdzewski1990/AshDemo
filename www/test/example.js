@@ -3,10 +3,24 @@
   var exampleTests = {};
 
   //setup test callbacks
-  win.Ash.beforeClass = function(){ console.log("Before Class"); };
-  win.Ash.afterClass = function(){ console.log("After Class"); };
-  win.Ash.before = function(){ console.log("Before"); };
-  win.Ash.after = function(){ console.log("After"); };
+  win.Ash.beforeClass = function(){ 
+    console.log("Before Class - runs on test start");
+  };
+  win.Ash.afterClass = function(){ 
+    console.log("After Class - runs after all tests completed");
+    //instant feedback
+    var testNum = 6;
+    var rows = document.getElementById('tableBody').getElementsByTagName("tr").length;
+    if(rows % testNum != 0){
+      alert("Some tests didn't run!");
+    }
+  };
+  win.Ash.before = function(){ 
+    console.log("Before - starts before each test");
+  };
+  win.Ash.after = function(){ 
+    console.log("After - runs after each test completion"); 
+  };
   
   exampleTests.conf = {app: "Ash Demo", appVersion: "0.1", desc: "Demo app for ASH testing framework", key: "demo"};
   
@@ -126,7 +140,7 @@
     },
     goto: function(){
       console.log("Going to orientation page");
-      if(!this.validate()) app.mySwipe.slide(0, 1);//app.gotoScreen(0);
+      if(!this.validate()) app.mySwipe.slide(0, 1);
       return true;
     }
   };

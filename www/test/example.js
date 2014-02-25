@@ -112,7 +112,7 @@
     
   exampleTests.advertTest = function(){
     $(".app").click();
-    Ash.isOnPage(exampleTests.advertSubpageObject);
+    Ash.onPage(exampleTests.advertSubpageObject);
     $(".app").click();
     Ash.endTest();
   };

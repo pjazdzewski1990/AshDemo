@@ -11,8 +11,8 @@
     //instant feedback
     var testNum = 6;
     var rows = document.getElementById('tableBody').getElementsByTagName("tr").length;
-    if(rows % testNum != 0){
-      alert("Some tests didn't run!");
+    if(rows != exampleTests.expectedRunNum){
+      alert("Some tests didn't run! Expected " + exampleTests.expectedRunNum);
     }
   };
   win.Ash.before = function(){ 
@@ -21,7 +21,10 @@
   win.Ash.after = function(){ 
     console.log("After - runs after each test completion"); 
   };
-  
+
+  //how many times the tests have been started
+  exampleTests.expectedRunNum = 0;
+
   exampleTests.conf = {app: "Ash Demo", appVersion: "0.1", desc: "Demo app for ASH testing framework", key: "demo"};
   
   exampleTests.orientationTest = function(){
@@ -175,6 +178,8 @@
   ];
 
   exampleTests.runAll = function(){
+    this.expectedRunNum += 6;
+    
     Ash.config(exampleTests.conf).run(exampleTests, function(errorData){
       exampleTests.appendResult(errorData.level, errorData.message);
     }, function(successData){
@@ -183,10 +188,12 @@
   };
     
   exampleTests.playAll = function(){
+    this.expectedRunNum += this.demoTripScenario.length;
+    
     Ash.config(exampleTests.conf).play(exampleTests.demoTripScenario, function(errorData){
       exampleTests.appendResult(errorData.level, errorData.message);
     }, function(successData){
-      exampleTests.appendResult("Scenario Step Success", "Scenario demo trip step succeeded");
+      exampleTests.appendResult("Scenario Step Success", "Scenario demo trip step " + successData.index + " out of " + successData.length + "  after " + (successData.stopTime - successData.startTime));
     });
   };
   

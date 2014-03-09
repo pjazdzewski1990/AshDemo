@@ -1,5 +1,4 @@
 var app = {
-  currentScreen: 0,
   mySwipe: null,
 
   initialize: function() {
@@ -34,7 +33,7 @@ var app = {
   
   onDeviceReady: function() {
     app.receivedEvent('deviceready');
-    app.setConnectionBox();
+    window.setInterval(app.setConnectionBox(), 1000);
     app.setGeoCapture();
 
     Ash.loadTests(["test/example.js"]);

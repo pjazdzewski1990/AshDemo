@@ -47,15 +47,12 @@
   };
   
   exampleTests.connectionTest = function(){
-    console.log("connectionTest - TODO");
-    Ash.endTest();
-//    Ash.noNetwork(function(msg){
-//      alert("network mode off");
-//      app.setConnectionBox();
-//      
-//      Ash.equal($('#connectionField').text(), 'No network connection');
-//      Ash.endTest();
-//    });
+    Ash.noNetwork(function(msg){
+      app.setConnectionBox();
+        
+      Ash.equal($('#connectionField').text(), 'No network connection');
+      Ash.endTest();
+    });
   };
   
   exampleTests.captureAudioTest = function(){
@@ -183,7 +180,7 @@
     Ash.config(exampleTests.conf).run(exampleTests, function(errorData){
       exampleTests.appendResult(errorData.level, errorData.message);
     }, function(successData){
-      exampleTests.appendResult("Test Success", "Test " + successData.index + " out of " + successData.length);
+      exampleTests.appendResult("Run Test Success", "Test " + successData.index + " out of " + successData.length);
     });
   };
     
@@ -228,6 +225,11 @@
     exampleTests.playAll();
   }, false);
   
+  //make all errors visible for testing purposes
+  window.onerror = function(errorMsg, url, lineNumber) {
+    alert("Error " + url + ":" + lineNumber + "\n" + errorMsg);
+  };
+    
   win.tests = exampleTests;
-  exampleTests.runAll();
+  //exampleTests.runAll();
 })(window);

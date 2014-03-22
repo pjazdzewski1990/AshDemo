@@ -46,7 +46,7 @@
     });
   };
   
-  exampleTests.connectionTest = function(){
+  exampleTests.disableNetworkTest = function(){
     Ash.noNetwork(function(msg){
       app.setConnectionBox();
         
@@ -54,7 +54,16 @@
       Ash.endTest();
     });
   };
-  
+
+  exampleTests.enableNetworkTest = function(){
+    Ash.noNetwork(function(msg){
+      app.setConnectionBox();
+        
+      Ash.equal($('#connectionField').text(), 'WiFi connection');
+      Ash.endTest();
+    });
+  };
+    
   exampleTests.captureAudioTest = function(){
     var options = { type: 'audio/amr', limit: 3, duration: 10 };
     Ash.withFile(options, function(fileArray){
@@ -167,9 +176,15 @@
           howLong: 5000
       },
       {
-          name: "Connection Step",
+          name: "Disable Connection Step",
           where: exampleTests.connectionPageObject,
-          what: [exampleTests.connectionTest],
+          what: [exampleTests.disableNetworkTest],
+          howLong: 5000
+      },
+      {
+          name: "Eanble Connection Step",
+          where: exampleTests.connectionPageObject,
+          what: [exampleTests.enableNetworkTest],
           howLong: 5000
       }
   ];
@@ -204,9 +219,13 @@
     e.stopPropagation(); 
     exampleTests.orientationTest();
   }, false);
-  document.getElementById('connectionTest').addEventListener('click', function(e){
+  document.getElementById('disableNetworkTest').addEventListener('click', function(e){
     e.stopPropagation();
-    exampleTests.connectionTest();
+    exampleTests.disableNetworkTest();
+  }, false);
+  document.getElementById('enableNetworkTest').addEventListener('click', function(e){
+    e.stopPropagation();
+    exampleTests.enableNetworkTest();
   }, false);
   document.getElementById('recordTest').addEventListener('click', function(e){
     e.stopPropagation();
@@ -225,7 +244,7 @@
     exampleTests.playAll();
   }, false);
   
-  //make all errors visible for testing purposes
+  //make all errors visible (for testing purposes)
   window.onerror = function(errorMsg, url, lineNumber) {
     alert("Error " + url + ":" + lineNumber + "\n" + errorMsg);
   };

@@ -29,13 +29,13 @@
   
   exampleTests.orientationTest = function(){
     console.log("orientationTest");
-    Ash.orientationHorizontal(function(msg){
+    Ash.orientationHorizontal().then(function(msg){
       var element = $('#deviceorientationField');
       Ash.assert(element);
       Ash.equal(element.text(), "landscape");
       console.log("CHECK Horizontal finished");
       
-      Ash.orientationVertical(function(){
+      Ash.orientationVertical().then(function(){
         console.log("CHECK Vertical start");
         var elementAfter = $('#deviceorientationField');
         Ash.assert(elementAfter);
@@ -47,7 +47,7 @@
   };
   
   exampleTests.disableNetworkTest = function(){
-    Ash.noNetwork(function(msg){
+    Ash.noNetwork().then(function(msg){
       app.setConnectionBox();
         
       Ash.equal($('#connectionField').text(), 'No network connection');

@@ -27,8 +27,36 @@
 
   exampleTests.conf = {app: "Ash Demo", appVersion: "0.1", desc: "Demo app for ASH testing framework", key: "demo"};
   
+  exampleTests.orientationPageObject = {
+    //check if we are on correct sub-page
+    validate: function(){
+      console.log("Check if on orientation page");
+      var screen = document.getElementById('orientationScreen');
+      return Ash.isVisible(screen);
+    },
+    goto: function(){
+      console.log("Going to orientation page");
+      if(!this.validate()) app.mySwipe.slide(0, 1);
+      return true;
+    }
+  };
+    
+  exampleTests.connectionPageObject = {
+    //check if we are on correct sub-page
+    validate: function(){
+      console.log("Check if on connection page");
+      var screen = document.getElementById('connectionScreen');
+      return Ash.isVisible(screen);
+    },
+    goto: function(){
+      console.log("Going to connection page");
+      if(!this.validate()) app.mySwipe.slide(1, 1);
+      return true;
+    }
+  };
+    
   exampleTests.orientationTest = function(){
-    console.log("orientationTest");
+    console.log("OrientationTest - start");
     Ash.orientationHorizontal().then(function(msg){
       var element = $('#deviceorientationField');
       Ash.assert(element);
@@ -40,7 +68,7 @@
         var elementAfter = $('#deviceorientationField');
         Ash.assert(elementAfter);
         Ash.equal(elementAfter.text(), "portrait");
-       
+        
         Ash.endTest();
       });
     });
@@ -48,6 +76,7 @@
   
   exampleTests.disableNetworkTest = function(){
     Ash.noNetwork().then(function(msg){
+      console.log("disableNetworkTest ");
       app.setConnectionBox();
         
       Ash.equal($('#connectionField').text(), 'No network connection');
@@ -56,13 +85,35 @@
   };
 
   exampleTests.enableNetworkTest = function(){
-    Ash.noNetwork(function(msg){
+    Ash.endTest();
+    /*Ash.noNetwork().then(function(msg){
       app.setConnectionBox();
         
       Ash.equal($('#connectionField').text(), 'WiFi connection');
       Ash.endTest();
-    });
+    });*/
   };
+    
+  exampleTests.demoTripScenario = [
+      {
+          name: "Orientation Step",
+          where: exampleTests.orientationPageObject,
+          what: [exampleTests.orientationTest],
+          howLong: 50000
+      },
+      {
+          name: "Disable Connection Step",
+          where: exampleTests.connectionPageObject,
+          what: [exampleTests.disableNetworkTest],
+          howLong: 150000
+      },
+      {
+          name: "Eanble Connection Step",
+          where: exampleTests.connectionPageObject,
+          what: [exampleTests.enableNetworkTest],
+          howLong: 150000
+      }
+  ];
     
   exampleTests.captureAudioTest = function(){
     var options = { type: 'audio/amr', limit: 3, duration: 10 };
@@ -87,8 +138,9 @@
       var targetString = currentPosition.coords.latitude + ' ' + currentPosition.coords.longitude;
       Ash.equal(elementString, targetString);
       
-      if(currentPosition.coords.latitude == moveOptions.latitude || currentPosition.coords.longitude == moveOptions.longitude)
+      if(currentPosition.coords.latitude == moveOptions.latitude || currentPosition.coords.longitude == moveOptions.longitude){
         Ash.endTest();
+      }
     });
   };
   
@@ -139,55 +191,6 @@
       return true;
     }
   };
-
-  exampleTests.orientationPageObject = {
-    //check if we are on correct sub-page
-    validate: function(){
-      console.log("Check if on orientation page");
-      var screen = document.getElementById('orientationScreen');
-      return Ash.isVisible(screen);
-    },
-    goto: function(){
-      console.log("Going to orientation page");
-      if(!this.validate()) app.mySwipe.slide(0, 1);
-      return true;
-    }
-  };
-    
-  exampleTests.connectionPageObject = {
-    //check if we are on correct sub-page
-    validate: function(){
-      console.log("Check if on connection page");
-      var screen = document.getElementById('connectionScreen');
-      return Ash.isVisible(screen);
-    },
-    goto: function(){
-      console.log("Going to connection page");
-      if(!this.validate()) app.mySwipe.slide(1, 1);
-      return true;
-    }
-  };
-
-  exampleTests.demoTripScenario = [
-      {
-          name: "Orientation Step",
-          where: exampleTests.orientationPageObject,
-          what: [exampleTests.orientationTest],
-          howLong: 5000
-      },
-      {
-          name: "Disable Connection Step",
-          where: exampleTests.connectionPageObject,
-          what: [exampleTests.disableNetworkTest],
-          howLong: 5000
-      },
-      {
-          name: "Eanble Connection Step",
-          where: exampleTests.connectionPageObject,
-          what: [exampleTests.enableNetworkTest],
-          howLong: 5000
-      }
-  ];
 
   exampleTests.runAll = function(){
     this.expectedRunNum += 6;

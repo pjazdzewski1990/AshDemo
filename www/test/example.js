@@ -9,7 +9,7 @@
   win.Ash.afterClass = function(){ 
     console.log("After Class - runs after all tests completed");
     //instant feedback
-    var testNum = 6;
+    var testNum = 7;
     var rows = document.getElementById('tableBody').getElementsByTagName("tr").length;
     if(rows != exampleTests.expectedRunNum){
       alert("Some tests didn't run! Expected " + exampleTests.expectedRunNum);
@@ -54,6 +54,20 @@
       return true;
     }
   };
+  
+  exampleTests.advertSubpageObject = {
+    //check if we are on correct sub-page
+    validate: function(){
+      console.log("Check if advertisement subpage is present");
+      var bg = $('.app').css('background-image');
+      return bg.indexOf("img/ad.png") > -1;
+    },
+    goto: function(){
+      console.log("Going to advertisement subpage");
+      //true because the advert is always visible
+      return true;
+    }
+  };
     
   exampleTests.orientationTest = function(){
     console.log("OrientationTest - start");
@@ -74,11 +88,12 @@
     });
   };
   
-  exampleTests.disableNetworkTest = function(){
+  exampleTests.disableNetworkTest = function(){    
+    console.log("disableNetworkTest called");
     Ash.noNetwork().then(function(msg){
-      console.log("disableNetworkTest ");
+      console.log("disableNetworkTest running test");
       app.setConnectionBox();
-        
+      
       Ash.equal($('#connectionField').text(), 'No network connection');
       Ash.endTest();
     });
@@ -86,7 +101,7 @@
 
   exampleTests.enableNetworkTest = function(){
     Ash.endTest();
-    /*Ash.noNetwork().then(function(msg){
+    /*Ash.network().then(function(msg){
       app.setConnectionBox();
         
       Ash.equal($('#connectionField').text(), 'WiFi connection');
@@ -99,7 +114,7 @@
           name: "Orientation Step",
           where: exampleTests.orientationPageObject,
           what: [exampleTests.orientationTest],
-          howLong: 50000
+          howLong: 150000
       },
       {
           name: "Disable Connection Step",
@@ -178,22 +193,8 @@
     Ash.endTest();
   };
 
-  exampleTests.advertSubpageObject = {
-    //check if we are on correct sub-page
-    validate: function(){
-      console.log("Check if advertisement subpage is present");
-      var bg = $('.app').css('background-image');
-      return bg.indexOf("img/ad.png") > -1;
-    },
-    goto: function(){
-      console.log("Going to advertisement subpage");
-      //true because the advert is always visible
-      return true;
-    }
-  };
-
   exampleTests.runAll = function(){
-    this.expectedRunNum += 6;
+    this.expectedRunNum += 7;
     
     Ash.config(exampleTests.conf).run(exampleTests, function(errorData){
       exampleTests.appendResult(errorData.level, errorData.message);
@@ -242,9 +243,13 @@
     e.stopPropagation();
     exampleTests.visibilityTest();
   }, false);
-  document.getElementById('allTests').addEventListener('click', function(e){
+  document.getElementById('playTests').addEventListener('click', function(e){
     e.stopPropagation();
     exampleTests.playAll();
+  }, false);
+  document.getElementById('runTests').addEventListener('click', function(e){
+    e.stopPropagation();
+    exampleTests.runAll();
   }, false);
   
   //make all errors visible (for testing purposes)

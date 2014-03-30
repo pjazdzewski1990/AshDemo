@@ -9,7 +9,7 @@
   win.Ash.afterClass = function(){ 
     console.log("After Class - runs after all tests completed");
     //instant feedback
-    var testNum = 7;
+    var testNum = 8;
     var rows = document.getElementById('tableBody').getElementsByTagName("tr").length;
     if(rows != exampleTests.expectedRunNum){
       alert("Some tests didn't run! Expected " + exampleTests.expectedRunNum);
@@ -108,7 +108,23 @@
       Ash.endTest();
     });*/
   };
-    
+
+  //In Ash you can freely combine conditions to create more specific scenarios
+  exampleTests.combinationTest = function(){
+    console.log("combinationTest - start");
+    Ash.noNetwork().then(
+      Ash.orientationHorizontal
+    ).then(function(){
+      // now we are sure that both network is not available and screen is in horizontal position
+      //TODO: find a example
+      var d = new Date();
+      console.log("COMBINED! " + d.getSeconds() + "/" + d.getMilliseconds());
+    }).then(
+      Ash.orientationVertical
+    ).then(function(arg){
+      Ash.endTest();
+    });
+  };
   exampleTests.demoTripScenario = [
       {
           name: "Orientation Step",
@@ -194,7 +210,7 @@
   };
 
   exampleTests.runAll = function(){
-    this.expectedRunNum += 7;
+    this.expectedRunNum += 8;
     
     Ash.config(exampleTests.conf).run(exampleTests, function(errorData){
       exampleTests.appendResult(errorData.level, errorData.message);

@@ -3,10 +3,10 @@
   var exampleTests = {};
 
   //setup test callbacks
-  win.Ash.beforeClass = function(){ 
+  win.Ash.callbacks.beforeClass = function(){ 
     console.log("Before Class - runs on test start");
   };
-  win.Ash.afterClass = function(){ 
+  win.Ash.callbacks.afterClass = function(){ 
     console.log("After Class - runs after all tests completed");
     //instant feedback
     var testNum = 8;
@@ -15,10 +15,10 @@
       alert("Some tests didn't run! Expected " + exampleTests.expectedRunNum);
     }
   };
-  win.Ash.before = function(){ 
+  win.Ash.callbacks.before = function(){ 
     console.log("Before - starts before each test");
   };
-  win.Ash.after = function(){ 
+  win.Ash.callbacks.after = function(){ 
     console.log("After - runs after each test completion"); 
   };
 
@@ -125,6 +125,7 @@
       Ash.endTest();
     });
   };
+
   exampleTests.demoTripScenario = [
       {
           name: "Orientation Step",

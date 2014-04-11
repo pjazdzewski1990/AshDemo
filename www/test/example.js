@@ -76,15 +76,15 @@
       Ash.assert(element);
       Ash.equal(element.text(), "landscape");
       console.log("CHECK Horizontal finished");
-      
-      Ash.orientationVertical().then(function(){
-        console.log("CHECK Vertical start");
-        var elementAfter = $('#deviceorientationField');
-        Ash.assert(elementAfter);
-        Ash.equal(elementAfter.text(), "portrait");
+    }).then(
+      Ash.orientationVertical
+    ).then(function(msg){
+      console.log("CHECK Vertical start");
+      var elementAfter = $('#deviceorientationField');
+      Ash.assert(elementAfter);
+      Ash.equal(elementAfter.text(), "portrait");
         
-        Ash.endTest();
-      });
+      Ash.endTest();
     });
   };
   

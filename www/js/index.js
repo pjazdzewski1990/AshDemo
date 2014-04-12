@@ -3,7 +3,14 @@ var app = {
 
   initialize: function() {
     this.bindEvents();
-    this.mySwipe = Swipe(document.getElementById('slider'));
+    this.mySwipe = new Swipe(document.getElementById('slider'), {
+        callback: function(index, elem) {
+            //TODO: consider implementing realworld hash navigation to make demo more convincing! 
+            var old = window.location.hash;
+            window.location.hash = index;
+            console.log("Swipe from " + old + " to " + window.location);
+        }
+    });
   },
   
   bindEvents: function() {

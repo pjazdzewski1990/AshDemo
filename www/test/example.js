@@ -9,7 +9,7 @@
   win.Ash.callbacks.afterClass = function(){ 
     console.log("After Class - runs after all tests completed");
     //instant feedback
-    var testNum = 8;
+    var testNum = 9;
     var rows = document.getElementById('tableBody').getElementsByTagName("tr").length;
     if(rows != exampleTests.expectedRunNum){
       alert("Some tests didn't run! Expected " + exampleTests.expectedRunNum);
@@ -125,27 +125,6 @@
       Ash.endTest();
     });
   };
-
-  exampleTests.demoTripScenario = [
-      {
-          name: "Orientation Step",
-          where: exampleTests.orientationPageObject,
-          what: [exampleTests.orientationTest],
-          howLong: 150000
-      },
-      {
-          name: "Disable Connection Step",
-          where: exampleTests.connectionPageObject,
-          what: [exampleTests.disableNetworkTest],
-          howLong: 150000
-      },
-      {
-          name: "Eanble Connection Step",
-          where: exampleTests.connectionPageObject,
-          what: [exampleTests.enableNetworkTest],
-          howLong: 150000
-      }
-  ];
     
   exampleTests.captureAudioTest = function(){
     var options = { type: 'audio/amr', limit: 3, duration: 10 };
@@ -209,9 +188,48 @@
     $(".app").click();
     Ash.endTest();
   };
+    
+  exampleTests.pressBackTest = function(){
+    var pageOne = 1;
+    var pageTwo = 2;
+    app.mySwipe.slide(pageOne, 1); // slide to first screen
+    app.mySwipe.slide(pageTwo, 1); // slide to second
+    app.mySwipe.slide(pageTwo + 1, 1); // slide wven more so we could go back
+    
+    Ash.pressBack().then(function(msg){
+      Ash.equal("#" + pageTwo, window.location.hash);
+    }).then(
+      Ash.pressBack
+    ).then(function(){
+      Ash.equal("#" + pageOne, window.location.hash);
+      Ash.endTest();
+    });
+  };
 
+
+  exampleTests.demoTripScenario = [
+    {
+       name: "Orientation Step",
+       where: exampleTests.orientationPageObject,
+       what: [exampleTests.orientationTest],
+       howLong: 150000
+    },
+    {
+       name: "Disable Connection Step",
+       where: exampleTests.connectionPageObject,
+       what: [exampleTests.disableNetworkTest],
+       howLong: 150000
+    },
+    {
+       name: "Eanble Connection Step",
+       where: exampleTests.connectionPageObject,
+       what: [exampleTests.enableNetworkTest],
+       howLong: 150000
+    }
+  ];
+    
   exampleTests.runAll = function(){
-    this.expectedRunNum += 8;
+    this.expectedRunNum += 9;
     
     Ash.config(exampleTests.conf).run(exampleTests, function(errorData){
       exampleTests.appendResult(errorData.level, errorData.message);
@@ -259,6 +277,10 @@
   document.getElementById('visibilityTest').addEventListener('click', function(e){
     e.stopPropagation();
     exampleTests.visibilityTest();
+  }, false);
+  document.getElementById('backButtonTest').addEventListener('click', function(e){
+    e.stopPropagation();
+    exampleTests.pressBackTest();
   }, false);
   document.getElementById('playTests').addEventListener('click', function(e){
     e.stopPropagation();

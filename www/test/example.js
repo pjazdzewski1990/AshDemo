@@ -9,7 +9,7 @@
   win.Ash.callbacks.afterClass = function(){ 
     console.log("After Class - runs after all tests completed");
     //instant feedback
-    var testNum = 9;
+    var testNum = 10;
     var rows = document.getElementById('tableBody').getElementsByTagName("tr").length;
     if(rows != exampleTests.expectedRunNum){
       alert("Some tests didn't run! Expected " + exampleTests.expectedRunNum);
@@ -99,12 +99,23 @@
     });
   };
 
+  exampleTests.slowNetworkTest = function(){
+    console.log("slowNetworkTest called");
+    Ash.slowNetwork().then(function(msg){
+      console.log("slowNetworkTest running test");
+      app.setConnectionBox();
+
+      Ash.equal($('#connectionField').text(), 'WiFi connection');
+      Ash.endTest();
+    });
+  };
+    
   exampleTests.enableNetworkTest = function(){
     console.log("enableNetworkTest called");
     Ash.networkOn().then(function(msg){
       console.log("enableNetworkTest running test");
       app.setConnectionBox();
-        
+    
       Ash.equal($('#connectionField').text(), 'WiFi connection');
       Ash.endTest();
     });
@@ -112,7 +123,7 @@
 
   //In Ash you can freely combine conditions to create more specific scenarios
   exampleTests.combinationTest = function(){
-    console.log("combinationTest - start");
+    console.log("combinationTest called");
     Ash.noNetwork().then(
       Ash.orientationHorizontal
     ).then(function(){
@@ -230,7 +241,7 @@
   ];
     
   exampleTests.runAll = function(){
-    this.expectedRunNum += 9;
+    this.expectedRunNum += 10;
     
     Ash.config(exampleTests.conf).run(exampleTests, function(errorData){
       exampleTests.appendResult(errorData.level, errorData.message);
@@ -263,6 +274,10 @@
     e.stopPropagation();
     exampleTests.disableNetworkTest();
   }, false);
+  document.getElementById('slowNetworkTest').addEventListener('click', function(e){
+    e.stopPropagation();
+    exampleTests.slowNetworkTest();
+  }, false);
   document.getElementById('enableNetworkTest').addEventListener('click', function(e){
     e.stopPropagation();
     exampleTests.enableNetworkTest();
@@ -283,6 +298,7 @@
     e.stopPropagation();
     exampleTests.pressBackTest();
   }, false);
+
   document.getElementById('playTests').addEventListener('click', function(e){
     e.stopPropagation();
     exampleTests.playAll();

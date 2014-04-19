@@ -100,13 +100,14 @@
   };
 
   exampleTests.enableNetworkTest = function(){
-    Ash.endTest();
-    /*Ash.network().then(function(msg){
+    console.log("enableNetworkTest called");
+    Ash.networkOn().then(function(msg){
+      console.log("enableNetworkTest running test");
       app.setConnectionBox();
         
       Ash.equal($('#connectionField').text(), 'WiFi connection');
       Ash.endTest();
-    });*/
+    });
   };
 
   //In Ash you can freely combine conditions to create more specific scenarios
@@ -194,7 +195,7 @@
     var pageTwo = 2;
     app.mySwipe.slide(pageOne, 1); // slide to first screen
     app.mySwipe.slide(pageTwo, 1); // slide to second
-    app.mySwipe.slide(pageTwo + 1, 1); // slide wven more so we could go back
+    app.mySwipe.slide(pageTwo + 1, 1); // slide even more so we could go back
     
     Ash.pressBack().then(function(msg){
       Ash.equal("#" + pageTwo, window.location.hash);

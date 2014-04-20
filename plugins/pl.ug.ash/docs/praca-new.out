@@ -1,0 +1,48 @@
+\BOOKMARK [0][-]{chapter*.4}{Wprowadzenie}{}% 1
+\BOOKMARK [0][-]{chapter.1}{Wprowadzenie}{}% 2
+\BOOKMARK [1][-]{section.1.1}{Hybrydowe\040aplikacje\040mobilne}{chapter.1}% 3
+\BOOKMARK [1][-]{section.1.2}{Wady podejścia hybrydowego}{chapter.1}% 4
+\BOOKMARK [1][-]{section.1.3}{Propozycja rozwiązania problemów}{chapter.1}% 5
+\BOOKMARK [1][-]{section.1.4}{Dlaczego\040Apache\040Cordova}{chapter.1}% 6
+\BOOKMARK [1][-]{section.1.5}{Test\040Driven\040Development}{chapter.1}% 7
+\BOOKMARK [1][-]{section.1.6}{Hierarchia testów}{chapter.1}% 8
+\BOOKMARK [0][-]{chapter.2}{Sposób użycia}{}% 9
+\BOOKMARK [1][-]{section.2.1}{Getting\040Started}{chapter.2}% 10
+\BOOKMARK [1][-]{section.2.2}{Hello\040World}{chapter.2}% 11
+\BOOKMARK [1][-]{section.2.3}{Podejście do tworzenia testów}{chapter.2}% 12
+\BOOKMARK [1][-]{section.2.4}{Ograniczenia}{chapter.2}% 13
+\BOOKMARK [0][-]{chapter.3}{Przegląd funkcjonalności}{}% 14
+\BOOKMARK [1][-]{section.3.1}{Asercje}{chapter.3}% 15
+\BOOKMARK [1][-]{section.3.2}{Zmiana położenia ekranu}{chapter.3}% 16
+\BOOKMARK [1][-]{section.3.3}{Dostęp do sieci}{chapter.3}% 17
+\BOOKMARK [1][-]{section.3.4}{Dostęp do systemu plików}{chapter.3}% 18
+\BOOKMARK [1][-]{section.3.5}{Symulacja\040ruchu}{chapter.3}% 19
+\BOOKMARK [1][-]{section.3.6}{Obsługa przycisku powrotu}{chapter.3}% 20
+\BOOKMARK [0][-]{chapter.4}{Zastosowania}{}% 21
+\BOOKMARK [1][-]{section.4.1}{Problemy związane z obecnymi rozwiązaniami}{chapter.4}% 22
+\BOOKMARK [1][-]{section.4.2}{Ash jako rozwiązanie}{chapter.4}% 23
+\BOOKMARK [1][-]{section.4.3}{RWE\040-\040real\040world\040example}{chapter.4}% 24
+\BOOKMARK [0][-]{chapter.5}{Wtyczki}{}% 25
+\BOOKMARK [1][-]{section.5.1}{Klasa\040CordovaPlugin}{chapter.5}% 26
+\BOOKMARK [1][-]{section.5.2}{Native\040bridge.\040Integracja\040z\040Apache\040Cordova}{chapter.5}% 27
+\BOOKMARK [1][-]{section.5.3}{Wielowątkowość}{chapter.5}% 28
+\BOOKMARK [0][-]{chapter.6}{Architektura}{}% 29
+\BOOKMARK [1][-]{section.6.1}{Spojrzenie\040z\040lotu\040ptaka}{chapter.6}% 30
+\BOOKMARK [1][-]{section.6.2}{Promises}{chapter.6}% 31
+\BOOKMARK [1][-]{section.6.3}{Wzorzec\040Object\040Pages\040w\040Ash}{chapter.6}% 32
+\BOOKMARK [1][-]{section.6.4}{Organizacja testów. Run oraz Play}{chapter.6}% 33
+\BOOKMARK [1][-]{section.6.5}{Obsługa błędów}{chapter.6}% 34
+\BOOKMARK [0][-]{chapter.7}{Implementacja}{}% 35
+\BOOKMARK [1][-]{section.7.1}{Zmiana położenia ekranu}{chapter.7}% 36
+\BOOKMARK [1][-]{section.7.2}{Dostęp do sieci}{chapter.7}% 37
+\BOOKMARK [1][-]{section.7.3}{Dostęp do systemu plików}{chapter.7}% 38
+\BOOKMARK [1][-]{section.7.4}{Symulacja\040ruchu}{chapter.7}% 39
+\BOOKMARK [1][-]{section.7.5}{Obsługa przycisku powrotu}{chapter.7}% 40
+\BOOKMARK [0][-]{chapter.8}{Narzędzia oraz środowisko programisty}{}% 41
+\BOOKMARK [1][-]{section.8.1}{Rozpraszanie wykonania testów}{chapter.8}% 42
+\BOOKMARK [1][-]{section.8.2}{Tworzenie laboratorium urządzeń}{chapter.8}% 43
+\BOOKMARK [0][-]{chapter.9}{Dalsze\040kierunki\040rozwoju}{}% 44
+\BOOKMARK [0][-]{chapter*.19}{Zakończenie}{}% 45
+\BOOKMARK [0][-]{appendix.A}{Tytuł załącznika}{}% 46
+\BOOKMARK [0][-]{appendix.B}{Tytuł załącznika}{}% 47
+\BOOKMARK [0][-]{appendix*.20}{Oświadczenie}{}% 48

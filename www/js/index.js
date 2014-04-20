@@ -40,7 +40,9 @@ var app = {
   
   onDeviceReady: function() {
     app.receivedEvent('deviceready');
-    window.setInterval(app.setConnectionBox(), 1000);
+    //window.setInterval(app.setConnectionBox(), 1000);
+    document.addEventListener("offline", app.setConnectionBox, false);
+    document.addEventListener("online", app.setConnectionBox, false);
     app.setGeoCapture();
 
     Ash.loadTests(["test/example.js"]);

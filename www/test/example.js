@@ -12,7 +12,7 @@
     var testNum = 10;
     var rows = document.getElementById('tableBody').getElementsByTagName("tr").length;
     if(rows != exampleTests.expectedRunNum){
-      alert("Some tests didn't run! Expected " + exampleTests.expectedRunNum);
+      alert("Some tests didn't run! Expected " + exampleTests.expectedRunNum + " got " + rows);
     }
   };
   win.Ash.callbacks.before = function(){ 

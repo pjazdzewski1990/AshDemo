@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.1415926-2.5-0.9999.3 (TeX Live 2013/Debian) (format=xelatex 2014.4.18)  19 APR 2014 23:18
+This is XeTeX, Version 3.1415926-2.5-0.9999.3 (TeX Live 2013/Debian) (format=xelatex 2014.4.18)  21 APR 2014 21:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -913,20 +913,20 @@ Rozdział 4.
 ] [25] [26]
 Rozdział 5.
 
-Overfull \hbox (35.50433pt too wide) in paragraph at lines 485--486
+Overfull \hbox (35.50433pt too wide) in paragraph at lines 487--488
 [][][]$[][][][] [] [] [] [][][][][][][] [] [][][][][][] [] [][][] [] [][][][] [
 ] [][] [] [][][][] [] [][][][][] [] [][][][][][] [] [][][][][][][] [] [][][][][
 ] []
  []
 
 
-Overfull \hbox (16.96436pt too wide) in paragraph at lines 487--488
+Overfull \hbox (16.96436pt too wide) in paragraph at lines 489--490
 [][][]$[][][][] [] [] [] [][][][][][][] [] [][][][][][] [] [][][] [] [][][][] [
 ] [][] [] [][][][] [] [][][][][] [] [][][][][][][][][] [] [][][][][][][] []
  []
 
 
-Overfull \hbox (65.10753pt too wide) in paragraph at lines 498--499
+Overfull \hbox (65.10753pt too wide) in paragraph at lines 500--501
 []\EU1/lmr/m/n/12 TODO prosty diagram klas dla commitu b872df0f314194ad50cbaa09
 8ebbf717e53bb354 
  []
@@ -938,7 +938,7 @@ Rozdział 6.
 [29
 
 ] [30] [31]
-Overfull \hbox (10.77237pt too wide) in paragraph at lines 601--602
+Overfull \hbox (10.77237pt too wide) in paragraph at lines 603--604
 [][][]$[][][][] [] [] [] [][][][] [] [][][][][][][][][][] [] [][][] [] [][][][]
  [] [][] [] [][][][] [] [][][][][][] [] [][][][][][][][][][][][][][] []
  []
@@ -948,13 +948,13 @@ Underfull \vbox (badness 2050) has occurred while \output is active []
 
  [33]
 [34] [35] [36] [37]
-Overfull \hbox (22.07872pt too wide) in paragraph at lines 753--754
+Overfull \hbox (22.07872pt too wide) in paragraph at lines 755--756
 []\EU1/lmr/m/n/12 porównanie czasu scenario[0].howLong z czasem wywołania scena
 rio[0].what 
  []
 
 
-Overfull \hbox (23.37473pt too wide) in paragraph at lines 758--759
+Overfull \hbox (23.37473pt too wide) in paragraph at lines 760--761
 []\EU1/lmr/m/n/12 porównanie czasu scenario[n].howLong z czasem wywołania scena
 rio[n].what 
  []
@@ -962,18 +962,18 @@ rio[n].what
 [38] [39]
 Rozdział 7.
 
-Overfull \hbox (150.38237pt too wide) in paragraph at lines 792--793
+Overfull \hbox (150.38237pt too wide) in paragraph at lines 794--795
 [][][][][][][][][][][][][][][][][][][]  
  []
 
 
-Overfull \hbox (47.47871pt too wide) in paragraph at lines 797--798
+Overfull \hbox (47.47871pt too wide) in paragraph at lines 799--800
 []\EU1/lmr/m/n/12 orientationHorizontal - ActivityInfo.SCREEN_ORIENTATION_LANDS
 CAPE 
  []
 
 
-Overfull \hbox (22.4947pt too wide) in paragraph at lines 798--799
+Overfull \hbox (22.4947pt too wide) in paragraph at lines 800--801
 []\EU1/lmr/m/n/12 orientationVertical - ActivityInfo.SCREEN_ORIENTATION_PORTRAI
 T 
  []
@@ -1006,12 +1006,12 @@ No file praca-new.bbl.
 ] [49
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 903.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 903.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 914.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 914.
  (./praca-new.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 903.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 903.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 903.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 914.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 914.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 914.
  ) 
 Here is how much of TeX's memory you used:
  22242 strings out of 495627

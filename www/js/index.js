@@ -98,7 +98,7 @@ var app = {
   },
 
   recordAudio: function() {
-    alert("record");
+    //TODO: there is a bug. captures get cancelled http://mail-archives.apache.org/mod_mbox/cordova-issues/201312.mbox/%3CJIRA.12683611.1386601540356.13157.1386717727711@arcas%3E 
     var captureError = function(error) { 
       alert("Blad! " + JSON.stringify(error));
     };

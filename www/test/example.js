@@ -140,7 +140,7 @@
     
   exampleTests.captureAudioTest = function(){
     var options = { type: 'audio/amr', limit: 3, duration: 10 };
-    Ash.withFile(options, function(fileArray){
+    Ash.withFile(options).then(function(fileArray){
       app.captureSuccess(fileArray);
       
       var element = $('#recordField');
@@ -314,5 +314,5 @@
   };
     
   win.tests = exampleTests;
-  //exampleTests.runAll();
+  exampleTests.runAll();
 })(window);

@@ -127,16 +127,20 @@ var app = {
 
   hideElements: function() {
     console.log("Hiding elements");
-//    $('#visibilityHiddenField').css("visibility", "hidden");
+    $('#visibilityHiddenField').css("visibility", "hidden");
     $('#displayNoneField').css("display", "none");
-//    $('#outOfScreenField').offset({ top: 5000, left: 5000});
+    document.getElementById('hiddenPropertyField').hidden = true;
+    //$('#outOfScreenField').offset({ top: 5000, left: 5000});
+    $('#sizeZeroField').width(0).height(0);
   },
 
   showElements: function() {
     console.log("Showing elements");
-//    $('#visibilityHiddenField').css("visibility", "visible");
+    $('#visibilityHiddenField').css("visibility", "visible");
     $('#displayNoneField').css("display", "block");
 //    $('#outOfScreenField').offset({ top: 1100, left: 450});
+      document.getElementById('hiddenPropertyField').hidden = false;
+      $('#sizeZeroField').width(100).height(25);
   },
   
   toggleAdvert: function() {

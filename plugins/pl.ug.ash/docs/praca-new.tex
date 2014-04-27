@@ -69,15 +69,15 @@ hybrydowe aplikacje mobilne}
 
 Wstęp
 
-\chapter{Wprowadzenie}
+\chapter{Podstawowe terminy oraz techniki}
 \section{Hybrydowe aplikacje mobilne}
-Mówiąc o natywnej aplikacji mobilnej mamy na myśli apliakcję tworzoną z myślą o konkretnej platformie (Android, iOS, itp.) przy użyciu narzuconych przez twórcę platformy narzędzi (Java, Objective-C, itd.). Aplikacje mobile web są to z kolei aplikacje webowe zoptymalizowane po kątem urządzeń natywnych.
+Mówiąc o \textit{natywnej aplikacji mobilnej} mamy na myśli aplikację tworzoną z myślą o konkretnej platformie (Android, iOS, itp.) przy użyciu narzuconych przez twórcę platformy narzędzi (Java, Objective-C, itd.). Aplikacje mobile web są to z kolei aplikacje webowe zoptymalizowane po kątem urządzeń natywnych.
 Adobe PhoneGap oraz jej odpowiednik o otwartym źródle Apache Cordova, to
 dwie popularne biblioteki pozwalajace na tworzenie hybrydowych aplikacji
-mobilnych, tj. aplikacji które łączą w sobie zalety aplikacji natywnych oraz aplikacji
-typu mobile web. Zasada działania tego typu aplikacji jest w założeniu prosta i
+mobilnych, tj. aplikacji które łączą w sobie zalety aplikacji natywnych oraz \textit{aplikacji
+typu mobile web}. Zasada działania tego typu aplikacji jest w założeniu prosta i
 polega na wykorzystaniu komponentów, które dalej nazywać będziemy WebView.
-Kontrolki te są dostępne na każdej nowoczesnej platoformie i pozwalają nam na
+Komponenty te są dostępne na każdej nowoczesnej platoformie i pozwalają na
 wyświetalnie stron internetowych z wnętrza natywnych aplikacji mobilnych. 
 W momencie startu aplikacja hybrydowa tworzy WebView oraz ładuje do niego zasoby z określonego adresu (lokalnego lub zdalnego), które są wyświetlane w WebView. Najczęściej tym zasobem jest aplikacja stworzona przy użyciu technologii webowych.     
 
@@ -98,24 +98,23 @@ W momencie startu aplikacja hybrydowa tworzy WebView oraz ładuje do niego zasob
 \end{center}
 
 Takie podejście ma wiele zalet. Dzięki temu, że do tworzenia aplikacji hybrydowych wykorzystywane są technologie
-znane z zastosowań intenetowych, koszt tworzenia aplikacji i czas dostarczenia
+znane z zastosowań intenetowych, koszt ich tworzenia i czas dostarczenia
 gotowego rozwiązania na rynek są znacznie zredukowane. Aplikacje tego typu są też
-z założenia wieloplatformowe. Używając PhoneGap z tego samego kodu źródłowego
+z założenia wieloplatformowe. Używając PhoneGap z~tego samego kodu źródłowego
 możemy stworzyć aplikacje na platformę Android, iOS, Blackberry, WebOS,
-Windows Phone, Symbiana i Bada. Dodatkowo popularność narzędzi internetowych
+Windows Phone, Symbian i Bada. Dodatkowo popularność narzędzi internetowych
 ułatwia znalezienie właściwych programistów.
 
 \section{Wady podejścia hybrydowego}
 Największymi wadami podejścia hybrydowego są słabsza wydajność, błędy
-pojawiające się tylko na określonych urządzeniach oraz różnorodne oczekiwania
+pojawiające się tylko na określonych urządzeniach oraz potencjalnie odmienne oczekiwania
 użytkowników różnych platform. Użytkownik instalując aplikację hybrydową w taki sam sposób co 
 natywną spodziewa się, że będzie ona działać niczym natywna. Tymczasem
 dodatkowy narzut hybrydy, często w połączeniu z niechlujnie przygotowaną i nie
 zoptymalizowaną aplikacją, prowadzi do mniej responsywnego interfejsu
 użytkownika i w konskewencji do frustracji użytkownika. Częstym problemem przy
-tworzeniu aplikacji mobilnych są błędy pojawiające się tylko na określonych
-urządzeniach. Przy podejściu hybrydowym problem jest o tyle bardziej widoczny, że
-najczęściej tworzymy rozwiązanie które ma być przenośne nie tylko pomiędzy urządzeniami w ramach jednej platformy, ale także między platformami. Co z oczywistych względów zwiększa przestrzeń urządzeń, które trzeba uzwględnić. Trzecim problemem hybryd jest kwestia
+tworzeniu aplikacji mobilnych są błędy, które są specyficzne tylko dla pewnych modeli urządzeń. Przy podejściu hybrydowym problem jest o tyle bardziej widoczny, że
+najczęściej tworzymy rozwiązanie które ma być przenośne nie tylko pomiędzy urządzeniami w ramach jednej platformy, ale także między platformami. Co z oczywistych względów zwiększa gamę urządzeń, które trzeba uzwględnić. Trzecim problemem hybryd jest kwestia
 tworzenia interfejsu użytkownika. Dostawcy systemów operacyjnych dla urządzeń
 mobilnych publikują zalecenia, co do tego jak powinien wyglądać interfejs aplikacji
 działającej pod danym systemem. Zalecenia te są specyficzne dla platformy i często
@@ -124,23 +123,23 @@ może zostać źle odebrane przez użytkowników spodziewających się wyglądu
 dostosowanego do platformy. Niestety stworzenie kilku wersji interfejsu jest dużo
 bardziej pracochłonne i skomplikowane, niweczy także podstawową zaletę apliakcji
 hybrydowych – przenośność. 
-Są to poważne niedostatki, ale braki te można zniwelować poprzez skuteczne narzędzia.
+Są to poważne niedostatki, ale braki te można zniwelować z pomocą skutecznych narzędzi.
 
 \section{Propozycja rozwiązania problemów}
-Ash ma za zadanie pomóc rozwiązać problemy zwiąne z wydajnością aplikacji oraz z
-błędami pojawiającymi się tylko na określonych konfiguracjach sprzętowych. Aby
-zapewnić wysoką wydajność działania aplikacji konieczny jest rygor w tworzeniu
-wydajnego oprogramowania oraz możliwość testowania jej w sytuacjach które mogę
+Ash ma za zadanie pomóc rozwiązywać problemy zwiąne z wydajnością aplikacji oraz z
+błędami zależnymi od konfiguracji sprzętowych. Aby
+zapewnić wysoką sprawność działania aplikacji konieczny jest rygor przy tworzeniu
+oprogramowania oraz możliwość testowania jej w sytuacjach, które pozwalają
 uwydatnić problemy z wydajnością. Dzięki funkcyjnemu podejściu do testowania
-oprogramowania Ash pozwala na zbieranie informacji o responsywności interfejsu
+oprogramowania Ash pozwala zbierać informacje o responsywności interfejsu
 oraz realistycznie symulować scenariusze dużego obciążenia. Programista
 korzystający z Ash ma możliwość zdefiniowania w scenariuszach maksymalnego
 czasu przebeigu testu, jeśli test nie zakończy się w założonym czasie test nie
 powiedzie się. Niska responsywność interfejsu traktowana jest na równi z błędami
 logiki czy prezentacji. Wymusza to na twórcy zadbanie o szybkość reakcji interfejsu.
 Ash oferuje także możliwość chwilowego wyłączenia lub opóźnienia dostępu do
-sieci. Sytuacje w których dostępność do internetu jest ograniczona są dość częste,
-jednak niewiele aplikacji jest pisana biorąc to pod uwagę, jeszcze mniej jest
+sieci. Sytuacje w których dostępność internetu jest ograniczona są dość częste,
+jednak niewiele aplikacji jest pisanych biorąc to pod uwagę, a jeszcze mniej 
 testowana pod tym kątem. Bardzo często problemy z dotępem objawiają się kiepską
 wydajnością interfejsu lub długimi przestojami na ekranach ładowania. Ash pozwala
 twórcom świadomie zmierzyć się z tym problemem. Ash wyposażony jest w
@@ -156,8 +155,7 @@ konfiguracji.
 Jako bazę do implementacji wybrałem Apache Cordova. Apache Cordova jest to
 wersja PhoneGap, którą korporacja Adobe (właściel praw do PhoneGap) udostępniła
 fundacji Apache. Od tego momentu ten wariant technologii udostępniany jest
-zasadzie otwartego źródła. Pomimo tego oba projekty są niemal identyczne, a jedyna
-różnica faktyczna różnica między nimi jest natury prawnej. Głównym powodem
+zasadzie otwartego źródła. Pomimo tego oba projekty są niemal identyczne, a jedyna faktyczna różnica między nimi jest natury prawnej. Głównym powodem
 wyboru tej technologii jest spory udziała w rynku hybrydowych aplikacji mobilnych,
 dynamizm rozwoju oraz liczna społeczność.
 
@@ -165,12 +163,12 @@ dynamizm rozwoju oraz liczna społeczność.
 
 Test Driven Development jest to metodologia wytwarzania oprogramowania opierająca się na krótkich cyklach programistycznych, o których często mówimy red-green-refactor:
 \begin{itemize}
-  \item RED Programista pisze testy automatyczne, które pokrywają funkcjonalność, która została wyspecyfikowana, ale nie jest jeszcze zaimplementowana. Na tym etapie testy nie przechodzą
-  \item GREEN Następnie programista implementuje brakujące funkcjonalności. Programista pisze kod, aż wszystkie testy napisane w poprzednim kroku
-  \item REFACTOR Po zakończeniu implementacji tworzone są dodatkowe testy do istniejących już funkcjonalności. Sama funkcjonalność też jest udoskonalona
+  \item RED Programista pisze testy automatyczne, pokrywające funkcjonalność, która została wyspecyfikowana, ale nie została jeszcze zaimplementowana. Na tym etapie testy nie przechodzą
+  \item GREEN Następnie programista implementuje brakujące funkcjonalności, aż wszystkie testy napisane w poprzednim kroku stają się zielone, czyli uruchamiają się bez błędów
+  \item REFACTOR Po zakończeniu implementacji tworzone są dodatkowe testy do istniejących już funkcjonalności. Sama funkcjonalność też jest udoskonalana
 \end{itemize}
 
-Dzięki zastosowaniu krótkich cykli oraz automatycznych testów metodologia ta pozwala na tworznie oprogramowania, które ma przejrzystą architekturę oraz spełnia wszystkie założenia. Testy automatyczne, które powstają podczas cykl dają pewność, że w przypadku, gdy kod aplikacji zmieni się potencjalne błędy zostaną od razu wychwycone. 
+Dzięki zastosowaniu krótkich cykli oraz automatycznych testów metodologia ta pozwala na tworznie oprogramowania, które ma przemyślaną architekturę oraz spełnia wszystkie założenia. Testy automatyczne, które powstają podczas cyklu zwiększają prawdopodobieństwo, że w przypadku, gdy kod aplikacji zmieni się potencjalne błędy zostaną od razu wychwycone. 
 
 Test Driven Developement jako metodologia jest powiązana z Extreme Programming oraz z koncepcją "Tests First", która zakłada że zestawy testów automatycznych powinny być tworzone jeszcze przed napisaniem tesotwanej aplikacji, co skutkuje wysoką jakością tworzonego oprogramowania.   
 
@@ -196,7 +194,18 @@ Wyróżniamy wiele rodzajów testów:
 
 W przypadku poprawnie zarządzanego projektu trzy pierwsze rodzaj tworzę hierarchię zwaną "piramidą testowania". Dwa pozostałe z wymienionych przeze mnie rodzajów pełni funkcję uzupełniającą. 
 
-{TODO OBRAZEK PIRAMIDY}
+\begin{figure}[p]
+    \centering
+    \includegraphics[scale=0.25]{idealautomatedtestingpyramid.png}
+    \caption{Piramida testów}
+    \label{fig:pyramis}
+\end{figure}
+
+Informacje na temat rozkładu piramidy testów oraz ich rozkładu w apliakcji można znaleźć tutaj:
+
+\url{http://martinfowler.com/bliki/TestPyramid.html}
+
+\url{http://www.duncannisbet.co.uk/test-automation-basics-levels-pyramids-quadrants}
 
 Biblioteka Ash została stworzona z testowaniem funkcjonalnym na myśli.
 
@@ -216,7 +225,157 @@ Projekt demonstrujący użycie Ash oraz jego możliwości jest dostępny pod adr
 
 \url{https://github.com/pjazdzewski1990/AshDemo}
 
-\section{Hello World} 
+\section{Hello World}
+
+Na porzeby wprowadzenia do testowania Ash powstała apliakcja AshHello, która jest dostępna pod adresem 
+
+\url{https://github.com/pjazdzewski1990/AshHello}
+
+Aby pobrać projekt 
+
+\begin{quote}
+   git clone git@github.com:pjazdzewski1990/AshHello.git
+\end{quote}
+
+Aplikacja AshHello zawiera w sobie bardzo prostą funkcjonalność. Jej zasadniczym celem jest pozwolenie użytkownikowi na zaznajomienie się z testowaniem przy użyciu biblioteki Ash. Interfejs użytkownika w AshHello jest zorganizowany na zasadzie tzw. {\it Working Square}. Working Square jest to wzorzec tworzenia interfejsu bardzo popularny na urządzeniach mobilnych. Polega on na stworzeniu kwadratowego obszaru roboczego który zawiera główną treść aplikacji oraz obszary pomocniczego na którym znadować się mogą np. elementy związane z nawigacją. Z zależności od orientacji ekranu, która dyktuje nam rozmiar i kształt powierzchni do zagospodarowania, obszar pomocniczy może znajdować się 
+
+\begin{itemize}
+  \item poniżej obszaru głównego - gdy urządzenia jest w orientacji pionowej, tzn. wysokość ekranu jest większa niż jego szerokość
+
+\begin{figure}[p]
+    \centering
+    \includegraphics[scale=0.25]{hello1.png}
+    \caption{AshHello w orientacji pionowej}
+    \label{fig:AshHello1}
+\end{figure}
+
+  \item obok obszaru głównego - gdy urządzenie jest w orientacji poziomej, czyli szerokość dostępnego ekranu jest większa niż jego wysokość 
+
+\begin{figure}[p]
+    \centering
+    \includegraphics[scale=0.25]{hello2.png}
+    \caption{AshHello w orientacji poziomej}
+    \label{fig:AshHello2}
+\end{figure}
+\end{itemize}
+
+Poniższa intrukcja krok po kroku wyjaśni, jak dodać testy Ash do projektu AshHello. Dla większej przejrzystości demonstracji testy będą korzystać z jquery, ale dołączenie tej biblioteki nie jest wymagane, gdy pracujemy z Ash.  
+
+\begin{enumerate}
+  \item Dodajemy Ash do projektu korzystając z Cordova CLI.\footnote{Projekt jest dostępny do pobrania pod adresem https://github.com/apache/cordova-cli}
+
+Wtyczkę instalujemy poleceniem 
+\begin{quote}
+   cordova plugins add https://github.com/pjazdzewski1990/Ash
+\end{quote}
+i jeśli wszystko przebiegło poprawnie, to zmienna window.Ash powinna zawierać obiekt udostępniający funkcjonalność biblioteki.  
+
+ \item Tworzymy plik z testami
+
+W folderze www/ tworzymy katalog test/ a w nim plik myTest.js. W przed chwilą stworzonym pliku definiujemy samowywołującą się funkcję, która będzie zawierać nasze testy. Możemy to zrobić na przykład w ten sposób:
+
+ \begin{lstlisting}
+  (function(){
+	console.log("MyTest started!");
+	// tu znajdzie sie kod testujacy
+  })();
+\end{lstlisting}
+
+Tak zdefiniowana funkcja zostanie wywołana zaraz po jej wczytaniu. Nasze testy nie będą bardzo skomplikowane, więc pozwolimy sobie na umieszczenia całej logiki bezpośrednio w tej funkcji. W przypadku bardziej rozbudowanych aplikacji i testów warto zgromadzić kodu obiekty.
+
+Mamy zamiar sprawdzić, czy Working Square działa poprawnie w obu ustawieniach ekranu, więc musimy skorzystać z kontekstów 
+
+\begin{quote}
+   Ash.orientationHorizontal()
+\end{quote}
+
+oraz 
+
+\begin{quote}
+   Ash.orientationVertical()
+\end{quote}
+
+które pozwalają na odwrócenie ekranu. Możemy z nich skorzystać w następujący sposób
+
+ \begin{lstlisting}
+  //myTest.js
+
+  Ash.orientationHorizontal().then(function(msg){
+     //ten kod bedzie wywolany, gdy ekran znajdzie sie w orientacji poziomej
+      var worksquare = $('.worksquare');
+      Ash.assert(worksquare);
+      
+      var sidebar = $('.sidebar');
+      Ash.assert(sidebar);
+
+      Ash.equal(worksquare.getBoundingClientRect().top, sidebar.getBoundingClientRect().top);
+     Ash.assert(worksquare.getBoundingClientRect().left < sidebar.getBoundingClientRect().left);
+
+      Ash.endTest();
+    });  
+\end{lstlisting}
+
+Powyższy test sprawdza trzy rzeczy. Po pierwsze znajduje elementy interfejsu, które chcemy zbadać. Przy użyciu Ash.assert() upewnia się, czy istnieją. A następnie porównuje ich pozycje upewniąjąc się, że lelementy są ułożone obok siebie i we właściwej kolejności. Ostanią operacją jest Ash.endTest() co oznacza zakończenie testu sukcesem.
+
+Taki test obejmuje tylko część funkcjonalności. Musimy też zadbać o orientację pionową oraz o to, czy przejście nie ,,psuje'' interfejsu. Aby to zbadać możemy podpiąć dalszą część testu. Na przykład w ten sposób
+
+ \begin{lstlisting}
+  //myTest.js
+
+  Ash.orientationHorizontal().then(function(msg){
+       //kod z porzedniego punktu
+
+      //to jeszcze nie koniec testu, wiec musimy zakomentowac lub usunac endTest()
+      //Ash.endTest();
+  }).then(
+      Ash.orientationVertical //a teraz odwroc ekran pionowo
+    ).then(function(msg){
+      var worksquare = $('.worksquare');
+      Ash.assert(worksquare);
+      
+      var sidebar = $('.sidebar');
+      Ash.assert(sidebar);
+
+      Ash.assert(worksquare.getBoundingClientRect().top < sidebar.getBoundingClientRect().top);
+      Ash.equal(worksquare.getBoundingClientRect().left, sidebar.getBoundingClientRect().left);        
+
+      //jesli aplikacja dotarla tutaj, to zaliczmy ten przypadek testowy
+      Ash.endTest();
+    });
+\end{lstlisting}
+
+Powyższy kod nie jest bardziej skomplikowany od poprzedniego. Jedyną nowością jest zastosowanie wielu bloków then(), które są wykonywane jeden po drugim w kolejności podania i pozwalają łączyć nam mniejsze funkcje testujace w bardziej złożone bloki.
+
+ \item Dodajemy wywołanie kodu testującego do aplikacji
+
+Teraz kiedy mamy już kod testów czas dodać go do aplikacji. W przypadku AshHello dobrym na to miejscem będzie index.js i metoda onDeviceReady(). Metoda ta jest wywołana, gdy zajdzie już zdarzenie 'deviceready' więc jesteśmy w stanie skorzystać z wszystkich dobrodziejstw Apache Cordova.
+
+ \begin{lstlisting}
+  //index.js
+  
+  var app = {
+	...
+    onDeviceReady: function() {
+        console.log('Received onDeviceReady Event');
+        app.setupUI();
+        app.runAshTests();
+    },
+    runAshTests: function() {
+        window.onerror = function(errorMsg, url, lineNumber) {
+            alert("Error " + url + ":" + lineNumber + "\n" + errorMsg);
+        };
+        Ash.loadTests(["test/myTest.js"]);
+    },
+	...
+  };
+
+\end{lstlisting}
+
+Nasza metoda runAshTests() robi dwie rzeczy dodaje wywołanie zwrotne dla zdarzenia onerror. W tym uproszczonym scenariuszu chcemy, żeby wszystkie błędy znalezione objawiały się wyskującym okienkiem z opisem problemu. Następnie korzystając z dotarczonej przez Ash metody loadTests() ładujemy myTests.js, jeśli przypomnimy sobie jak skonstruowany jest ten plik jasne stanie się, że od razu po wczytaniu zostanie on uruchomiony. 
+
+\end{enumerate}
+
+Tak niewiele potrzeba, żeby stworzyć i uruchomić pierwszy prosty test Ash. W razie problemów z uruchomieniem działający kod testowy znajduje się w branchu ,,with-tests''.
 
 \section{Podejście do tworzenia testów}
 
@@ -252,6 +411,8 @@ validate() zwraca wartość boolowską określającą, czy na obecnym ekranie zn
 
 goto() definiuje funkcje, która odpowiada za przejście przez aplikację, tak żeby rozważany Page Object stał się dostępny. Funckja powinna korzystać z validate(). goto() może być zastosowane np. do zmiany stanu interfejsu przed lub po teście.
 
+Oczywiście Page Objects mogą zawierać także inne metody zdefiniowane przez użytkownika, które ułatwią operowanie na interfejsie z poziomu testów oraz uczynią kod testów czytelniejszym.
+
 Prostota implementacji ma na celu uławienie korzystania z biblioteki, zachęca także do łączenia Page Objects ze sobą. Nic nie stoi na przeszkodzie, żeby zdefiniować Page Object ,,Menu'' jako zestaw kilku Page Objects, z których każdy opisuje jakiś element menu. 
 
  \item Organizacja testów - Zestawy możemy wykonywać albo przez polecenie run do którego przekazujemy tablicę funkcji-testów lub obiekt z testami (wtedy zgodnie z przyjętą konwencją uruchamianie są wszystkie funkcje, których nazwa kończy się frazą 'Test') albo korzystając z funkcji play wywoływanej ze scenariuszem testowym.
@@ -278,7 +439,7 @@ Założnie Ash co do projektu testowanego:
 \begin{itemize}
   \item wykonany w technologii Adobe Phonegap/Apache Cordova - istnieje możliwość aby w przyszłości testować także aplikacje typu mobile web, ale na obecnym etapie nie jest to celem Ash
   \item single page app - Ash zakłada, że aplikacja testowana będzie pisana zgodnie z najnowszymi trendami w branży oraz zaleceniami twórców Phonegap
-  \item android - obecnie Ash pozwala testować jedynie aplikacje bazujące na Androidzie jako platformie, gdyż ta jest dominująca na rynku, ale w niedalekiej przyszłości planowana jest także wersja na iOS
+  \item android 4.0+ - obecnie Ash pozwala testować jedynie aplikacje bazujące na Androidzie jako platformie, gdyż ta jest dominująca na rynku, ale w niedalekiej przyszłości planowana jest także wersja na iOS
 \end{itemize}
 
 \chapter{Przegląd funkcjonalności}
@@ -289,7 +450,43 @@ W każdej chwili istnieje możliwość wygenerowania aktualnej dokumentacji wpro
 
 \subsubsection{Sposób użycia}
 
+Zestaw funkcji pomocniczych użytecznych podczas tworzenia testów.
+
+\begin{quote}
+Ash.assert( ... ) 
+\end{quote}
+
+\begin{quote}
+Ash.equal( A, B )
+
+Ash.equals( A, B ) 
+\end{quote}
+
+\begin{quote}
+Ash.visible( ... ) 
+
+Ash.isVisible( ... )
+
+Ash.invisible( ... )
+
+Ash.isInvisible( ... )
+\end{quote}
+
 \subsubsection{Opis}
+
+Funkcje assert oraz equal są podstawowymi składowymi testów w Ash. Pozwalają one na 
+
+\begin{itemize}
+  \item sprawdzenie czy obiekt istnieje - funkcja assert(object) pozwala na sprawdzenie czy przekazany obiekt istnieje. Asercja ta zakłada, że każdy przekazany obiekt, który nie jest "falsy" w znaczeniu znanym z Javascript jest poprawny. 
+  \item porównanie dwóch wartości - equal(A, B) sprawdza, czy oba podane argumenty są identyczne. Wykorzystując do tego porównanie dokładne, tzn. bierzemy po uwagę typ, wartość oraz nie wykonujemy konwersji obiektów celem porównania.
+\end{itemize}
+Powyższe asercje w przypadku, gdy argumenty nie spełniają założeń rzucają ustandardyzowane wyjątki Ash. 
+
+Funkcja widzialności visible(A) określają czy przekazany element DOM jest widoczny na ekranie, tzn. czy jego właściwości nie wskazują na to, że jest ukryty oraz czy nie jest poza widocznym ekranem. Analogicznie obiekt spełnia invisible(A), gdy nie spełnia visible(A). 
+
+Różnica pomiędzy funkcjami X oraz isX jest taka, że te pierwsze rzucają wyjatki Ash, gdy założenie nie jest spełnione, natomiast te drugie tylko zwracają wartość boolowksą określającą czy arguemnt spełnia założenia.  
+
+Ash udostępnia także metodę equals, która działa identycznie jak equal, ale została dodana dla uproszczenia składni testów.
 
 \section{Zmiana położenia ekranu}
 
@@ -309,8 +506,8 @@ Ash.orientationVertical().then( ... )
 Smartfony i tablety ze względu na swój mobilny charakter oraz dotykowy ekran bardzo często używane są w pozycjach i w sposób, o których twórcom nawet się nie śniło. Najczęściej rozróżniamy dwie pozycje definiujące położnie ekranu wzgledem użytkownika. 
 
 \begin{itemize}
-  \item pionowe - gdy  TODO
-  \item poziome - gdy TODO
+  \item pionowe - gdy szerokość ekranu jest mniejsza niż jego wysokość
+  \item poziome - gdy szerokość ekranu jest większa niż jego wysokość
 \end{itemize}
 
 Każda dobrze wykonana aplikacja powinna uwzględniać te dwie pozycje. W każdej z nich przestrzeń, którą mamy do dyspozycji jest w prawdzie taka sama, ale jej posterzganie przez użytkownika jest inne, dlatego należy inaczej rozmieścić elementy interfejsu.  
@@ -382,17 +579,95 @@ W przypadku gdy do testowanej aplikacji dodane jest wtyczka cordova-plugin-netwo
 
 \section{Dostęp do systemu plików}
 
-\subsubsection{Opis}
-Daje dostęp do systemu plików - pozwala na symulowanie dostępu do lokalnych plików oraz ich uploadu.
-
 \subsubsection{Sposób użycia}
+Pozwala realizować scenariusze testowe zakładające operowanie na plikach.
+
+\begin{quote}
+var options = \{ type: 'audio/amr', limit: 3\};
+
+Ash.withFile(options).then( ... )
+\end{quote}
+
+\subsubsection{Opis}
+
+Bardzo częstym scenariuszem w przypadku wielu aplikacji jest konieczność operowania na lokalnym systemie plików. Może to być np. upload pliku z karty SD, wykonanie zdjęcia i przesłanie na serwer lub inne. Ash daje możliwość przetestowania jak aplikacja zachowuje się przy operowaniu na plikach.  
+
+Do kontekstu withFile przekazujemy obiekt zawierający informacje na jakich plikach chcemy przeprowadzić testy. Obiekt może posiadać następujące klucze:
+
+\begin{itemize}
+  \item type - Jest to ciąg znaków, który określa jakiego typu mają być zwrócone pliki. Domyślnie jest to 'audio/amr' czyli plik dźwiękowy. 
+  \item limit - Limit jest to wielkość plików w zwracanej tablicy wyrażony liczbą całkowitą. W przypadku, gdy limit nie został podany tablica zawiera 1 element. 
+\end{itemize}
+
+WithFile zwraca obiekt Promise. W przypadku realizacji obietnicy do bloku przekazywana jest tablica plików która może być wykorzystana w testach. Każdy plik w jest identyczny i spełnia założenia podane w argumencie 'options'. Przykładowy plik z tablicy może wyglądać w ten sposób:
+
+\begin{lstlisting}
+   {
+       "name": "file1",
+       "fullPath": "/path/to/file1",
+       "type": "audio/amr",
+       "lastModifiedDate": "Thu Apr 24 2014 22:52:29 GMT+0200 (CEST)",
+       "size": 100
+   };
+\end{lstlisting}
+
+Co odpowiada definicji pliku w ujęciu Apache Cordova. Patrz:
+
+\url{https://cordova.apache.org/docs/en/3.0.0/cordova_file_file.md.html#File}
 
 \section{Symulacja ruchu}
 
 \subsubsection{Opis}
 Ash dostarcza API umożliwiające symulowanie położenia lub ruchu między dwoma punktami.
 
+\begin{quote}
+var startPos = \{latitude: 0, longitude: 0\};
+
+var moveOptions = \{latitude: 100, longitude: 50, steps: 10\};
+
+Ash.onMove(startPos, moveOptions, function(currentPosition)\{ ... \});
+\end{quote}
+
+Gdzie startPos to pozycja startowa z której zaczynamy symulować ruch, moveOptions zawiera informacje o docelowym położeniu oraz w ilu "krokach" chcemy dotrzeć do tego miejsca. Do onMove przekazujemy także wywołanie zwrotne, które jest uruchamiane z  położeniem w danym momencie tyle razy ile podaliśmy w moveOptions.steps. 
+
 \subsubsection{Sposób użycia}
+
+Wiele aplikacji mobilnych w ten czy w inny sposób wykorzystuje informacje o położeniu geograficznym. Najczęściej te informacje są wykorzystywane do śledzenia położenia użytkownika oraz jego odległości od określonych punktów lub do tego, żeby dostarczać użytkownikowi aplikacji spersonalizowane informacje uzależnione od miejsca w jakim się znajduje. 
+
+Obiekt startPosition oraz moveOptions może zawierać następujace klucze
+
+\begin{lstlisting}
+   var startPosition = {
+       "latitude": 0,  //szerokosc geograficzna
+       "longitude": 0  //długosc geograficzna
+   };
+ 
+  var moveOptions = {
+      "latitude": 0,  //szerokosc geograficzna miejsca zakonczenia
+      "longitude": 0,  //dlugosc geograficzna miejsca zakonczenia
+      "steps": 1  //w ilu krokach nalezy dotrzec do miejsca zakonczenia
+  };
+\end{lstlisting}
+
+w przypadku, gdy klucze nie zostaną one dostarczone przyjmą one domyślne wartości, takie jak pokazano wyżej. 
+
+Obiekt który jest przekazywany do funkcji w kontekście ma następującą konstrukcję 
+
+\begin{lstlisting}
+
+{
+  "coords" :  {
+      "latitude": X, 
+      "longitude": Y,
+      "accuracy": 0, 
+      "altitudeAccuracy": 0, 
+      "heading": 0, 
+      "speed": 0
+   }
+}
+
+\end{lstlisting}
+Ash pozwala symulować zmianę położenia poprzez kontekst onMove(). Ta funkcnonalność działa inaczej niż pozostałe bloki, gdyż NIE zwraca obiektu promise, tylko przyjmuje funkcję - wywołanie zwrotne jako jeden ze swoich argumentów. Podyktowane jest to tym, że onMove() potencjalni może swój blok kodu wywoływać wielokrotnie, co jest sprzeczne z ideą obietnic. Każdy obiekt Promise jest jest rozstrzygany tylko raz. Jest on albo zaakceptowany albo odrzucony i nie można go wykorzystać wielokrotnie. 
 
 \section{Obsługa przycisku powrotu}
 
@@ -441,12 +716,12 @@ Ash pozwala na cofanie się aż do szczytu stosu historii aplikacji. W szczegól
 Testowanie obsługi przycisku powrotu na olbrzymie znaczenie w przypadku apliakcji mobilnych  oraz tzw. "Single Page Applications". Tworząc aplikacje bardzo wiele uwagi jest poświęcane sytuacjom kiedy użytkownik porusza się niejako "w głąb" aplikacji otwiera kolejne ekrany na zaplanowanej ścieżce zmieniając jej stan.  Właśnie globalny stan bywa w takich sytuacjach problemem. Bardzo często bywa, że użytkownik przechodzi przez ekrany A i B, w czasie swojego pobytu na B zmienia globalny stan, ale zamiast przechodzić dalej cofa się do A, które od czasu zmiany stanu zachowuje się inaczej niż zakładano. Tworząc aplikację należy zabezpieczyć się przed takimi sytuacjami. Ash.pressBack pozwala na przetestowanie czy taka sytuacja ma miejsce. 
 
 \chapter{Zastosowania}
-Ash został pomyślany jako biblioteka, która jest w stanie oprócz dostarczania "tradycyjnej" infrastruktury testowej, tzn.:
+Ash został pomyślany jako biblioteka, która jest w stanie oprócz dostarczania ,,tradycyjnej'' infrastruktury testowej, tzn.:
 \begin{itemize}
   \item asercji
   \item funkcji porównujących
   \item loggerów
-  \item narzędzi do budowanie testów
+  \item narzędzi do budowania testów
   \item ustandaryzowanych wyjątków
 \end{itemize}
 ułatwić także tesotwanie sytuacji, które są albo trudne do odtworzenia
@@ -480,7 +755,9 @@ Zewnętrzne API Ash napisane jest w jezyku Javascript i także w tym języku pis
 
 Apache Cordova udostępnia swoje API na zasadzie wtyczek. Każda wtyczka może być indywidualnie instalowana oraz udostępnia określone API i związane z nim funkcjonalności. Takie podejście pozwala na rozbicie monolitycznego API na mniejsze części oraz zapewnia możliwość rozszerzenia platformy poprzez własne wtyczki.
 
-Tak jest właśnie w przypadku Ash, który jest zaimplementowany jako wtyczka do platformy.
+Każda wtyczka składa się z dwóch części - API programisty napisanego w języku Javascript i udostępionego użytkownikom oraz warstwy kodu natywnego, który realizuje zadania niewykonywalne z poziomu WebView. Część natywna implementowana jest w technologiach zależnych od platformy. Przenośna wtyczka posiada kilka implementacji, w różnych językach, które sa podmieniane w czasie budowania aplikacji. Kod natywny jest opcjonalny dla wtyczek, ale korzystając z platformy istnieje możliwość wzbogacenia aplikacji.
+
+Ash, został zaimplementowany jako wtyczka do platformy. Obecnie warstwa natywna jest przygotowana tylko dla platformy Android, ale dalszym etapie rozwóju biblioteki planowane jest dodanie wsparcia dla innych platform. Kod działający po stronie systemu Android został napisany w języku Java.
 
 Więcej informacji można znaleźć w oficjalnej instrukcji dla twórców wtyczek
 
@@ -488,9 +765,11 @@ Więcej informacji można znaleźć w oficjalnej instrukcji dla twórców wtycze
 
 \url{http://cordova.apache.org/docs/en/edge/guide\_platforms\_android\_plugin.md.html\#Android\%20Plugins}   
 
+Nastepne podrozdziały koncentrują się na implementacji na platformę Android, ale w przypadku innych systemów zasada działania jest zbliżona.
+
 \section{Klasa CordovaPlugin}
 
-CordovaPlugin jest to klasa, która jest rozszerzana przez każdą wtyczkę. udostępnia ona dostęp do najważniejszych składowych aplikacji: 
+CordovaPlugin jest to klasa, która jest rozszerzana przez każdą wtyczkę. Udostępnia ona dostęp do najważniejszych składowych aplikacji oraz komunikację z warstwą Javascript: 
 
 \begin{itemize}
   \item CordovaWebView webView - komponent WebView w którym uruchomiona jest aplikacja
@@ -499,17 +778,59 @@ CordovaPlugin jest to klasa, która jest rozszerzana przez każdą wtyczkę. udo
 
 {TODO prosty diagram klas dla commitu b872df0f314194ad50cbaa098ebbf717e53bb354}
 
-Punktem wejściowym dla kodu każdej wtyczki jest jest metoda exec:
+Punktem wejściowym dla kodu każdej wtyczki jest jest metoda exec, która jest wywoływana, gdy warstwa javascript wyśle żadanie wywołania określonego kodu natywnego. Sygnatura exec wygląda tak:
+
 \begin{lstlisting}
 public boolean execute(String action, JSONArray args, final CallbackContext callbackContext) throws JSONException
 \end{lstlisting}
-To właśnie ta metoda jest wywoływana, gdy warstwa Javascript zażąda wywołania metody.   
 
-\section{Native bridge. Integracja z Apache Cordova}
+Kolejne argumenty to
+\begin{itemize}
+  \item action - nawza metody, która ma zostać wywołana
+  \item args - argumenty wysłane z warstwy Javascript zakodowane w postaci JSON
+  \item callbackContext - specjalna klasa Apache Cordova pozwalająca na wywoływanie zdarzeń po stronie WebView 
+\end{itemize}
 
-\section{Wielowątkowość}
+W kodu Javascript kod natywny możemy wywołać w następujący sposób:
 
-Javascript ze swojej natury jest jednowątkowy. Tak samo wykonanie testów w Ash też jest realizowane jeden po drugim. Powodem takiego podejścia jest to, że wiele gdyby wątków rywalizowało o współdzielony zasób, jakim jest DOM, konieczne byłoby zadbanie o ich synchronizacje, co jest trudne oraz mało wydajne. Z prawdziwą wielowątkowością mamy do czynienia dopiero na poziomie natywnej platformy.
+\begin{lstlisting}
+//Ash.js
+var cordova = require('cordova');
+
+cordova.exec( 
+        successCallback,
+        failureCallback, 
+        "Ash", 
+        "networkSlow", 
+        []
+);
+\end{lstlisting}
+
+Kolejne argumenty to
+\begin{itemize}
+  \item successCallback - wywołanie zwrotne uruchamiane, gdy odwołanie do natywnej części wtyczki się powiedzie
+  \item failureCallback - wywołanie zwrotne uruchamiane, gdy odwołanie do natywnej części wtyczki zakończy się błędem
+  \item pluginName - nazwa pluginu, będąca jego unikalnym identyfikatorem w obrębie aplikacji
+  \item actionName - nazwa akcji, która ma być wywołana. Ten argument jest później przekazywany do exec() jako parametr name 
+\item arguments - tablica argumentów wywołania przekazywana do exec() jako zmienna args 
+\end{itemize}
+
+\section{Wielowątkowość. Komunikacja między warstwami}
+
+Javascript ze swojej natury jest jednowątkowy. Tak samo wszystkie testy w Ash są wykonywane jeden po drugim. Poza trudnościami technicznymi powodem takiego podejścia jest to, że wiele gdyby wątków rywalizowało o współdzielony zasób, jakim jest DOM, konieczne byłoby zadbanie o ich synchronizację, co jest skomplikowane oraz mało wydajne. Z prawdziwą wielowątkowością mamy do czynienia dopiero na poziomie natywnej platformy.
+
+Wtyczki działają asynchronicznie. Kod uruchamiany po stronie natywnej platformy przez wywołania cordova.exec() działa w osobnym wątku. Realizuje on swoje cele a następnie poprzez CallbackContext uruchamia odpowiednie wywołania zwrotne przekazane przez użytkownika wtyczki. Takie podejście pozwala maksymalnie wykorzystać wiele wątków działających po stronie platformy bez komplikowania budowy aplikacji po stronie warstwy  JavaScript. W takim przypadku kod natywny nie wpływa bezpośrednio na WebView czy sposób interfejs apliakcji użytkownikowi. Wszelkie tego typu mainpulacje odbywają się po stronie Javascript za pośrednictwem funkcji zwrotnych. Niestety czasami istnieje konieczność bezpośredniej manipulacji WebView w taki wypadku istnieje możliwość skorzystania z metody runOnUiThread(). Metoda ta przyjmuje klasę implementującą interfejs Runnable, w której mozemy nadpisać metodę run() tak, aby realizowała nasze cele. Na przykład w ten sposób:
+
+\begin{lstlisting}
+//AshPlugin.java
+cordova.getActivity().runOnUiThread(new Runnable() {
+      public void run() {
+           // .... tu mozna bezpiecznie operowac na WebView oraz interfejsie
+      }
+});
+\end{lstlisting}
+
+Komunikacja pomiędzy warstwami wtyczki, natywną oraz Javascript odbywa się przez tak zwaną "Native To Js Queue". Jak sama nazwa wskazuje komunikacja pomiędzy warstwami odbywa się za pomocą kolejki. Oba poziomy aplikacji mogą umieszczać zakodowane wiadomości w kolejce, ale tylko jedna wiadomość może być przetwarzana. Pozwala to uniknąć kłopotów z wielowątkowością. Konsekwencją takiej implementacji protokołu komunikacji jest to, że kluczowe znaczenie przy wywoływaniu kodu, który odwołuje się między warstwami ma kolejność w jakiej wiadomości zostaną umieszczone w kolejce. W szczególności kolejka nie jest priorytetowa i nie ma w niej pojęcia ,,ważności'' wiadomości, czyli nie możliwe jest przepuszczenie wiadomości przed innymi.
 
 \chapter{Architektura}
 

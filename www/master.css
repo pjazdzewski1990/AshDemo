@@ -114,3 +114,7 @@
   	padding:1.2em 0;
   }
 
+.zeroSize {
+    width: 0px;
+    height: 0px;
+}

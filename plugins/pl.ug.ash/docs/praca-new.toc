@@ -1,63 +1,62 @@
 \select@language {polish}
 \contentsline {chapter}{Wprowadzenie}{5}{chapter*.4}
-\contentsline {chapter}{\numberline {1}Wprowadzenie}{6}{chapter.1}
+\contentsline {chapter}{\numberline {1}Podstawowe terminy oraz techniki}{6}{chapter.1}
 \contentsline {section}{\numberline {1.1}Hybrydowe aplikacje mobilne}{6}{section.1.1}
 \contentsline {section}{\numberline {1.2}Wady podejścia hybrydowego}{7}{section.1.2}
 \contentsline {section}{\numberline {1.3}Propozycja rozwiązania problemów}{8}{section.1.3}
 \contentsline {section}{\numberline {1.4}Dlaczego Apache Cordova}{9}{section.1.4}
 \contentsline {section}{\numberline {1.5}Test Driven Development}{9}{section.1.5}
 \contentsline {section}{\numberline {1.6}Hierarchia testów}{10}{section.1.6}
-\contentsline {chapter}{\numberline {2}Sposób użycia}{12}{chapter.2}
-\contentsline {section}{\numberline {2.1}Getting Started}{12}{section.2.1}
-\contentsline {section}{\numberline {2.2}Hello World}{12}{section.2.2}
-\contentsline {section}{\numberline {2.3}Podejście do tworzenia testów}{12}{section.2.3}
-\contentsline {section}{\numberline {2.4}Ograniczenia}{15}{section.2.4}
-\contentsline {chapter}{\numberline {3}Przegląd funkcjonalności}{17}{chapter.3}
-\contentsline {section}{\numberline {3.1}Asercje}{17}{section.3.1}
-\contentsline {subsubsection}{Sposób użycia}{17}{section*.5}
-\contentsline {subsubsection}{Opis}{17}{section*.6}
-\contentsline {section}{\numberline {3.2}Zmiana położenia ekranu}{17}{section.3.2}
-\contentsline {subsubsection}{Sposób użycia}{17}{section*.7}
-\contentsline {subsubsection}{Opis}{17}{section*.8}
-\contentsline {section}{\numberline {3.3}Dostęp do sieci}{19}{section.3.3}
-\contentsline {subsubsection}{Sposób użycia}{19}{section*.9}
-\contentsline {subsubsection}{Opis}{19}{section*.10}
-\contentsline {section}{\numberline {3.4}Dostęp do systemu plików}{21}{section.3.4}
-\contentsline {subsubsection}{Opis}{21}{section*.11}
-\contentsline {subsubsection}{Sposób użycia}{21}{section*.12}
-\contentsline {section}{\numberline {3.5}Symulacja ruchu}{21}{section.3.5}
-\contentsline {subsubsection}{Opis}{21}{section*.13}
-\contentsline {subsubsection}{Sposób użycia}{21}{section*.14}
-\contentsline {section}{\numberline {3.6}Obsługa przycisku powrotu}{21}{section.3.6}
-\contentsline {subsubsection}{Sposób użycia}{21}{section*.15}
-\contentsline {subsubsection}{Opis}{21}{section*.16}
-\contentsline {chapter}{\numberline {4}Zastosowania}{24}{chapter.4}
-\contentsline {section}{\numberline {4.1}Problemy związane z obecnymi rozwiązaniami}{25}{section.4.1}
-\contentsline {section}{\numberline {4.2}Ash jako rozwiązanie}{25}{section.4.2}
-\contentsline {section}{\numberline {4.3}RWE - real world example}{26}{section.4.3}
-\contentsline {chapter}{\numberline {5}Wtyczki}{27}{chapter.5}
-\contentsline {section}{\numberline {5.1}Klasa CordovaPlugin}{27}{section.5.1}
-\contentsline {section}{\numberline {5.2}Native bridge. Integracja z Apache Cordova}{28}{section.5.2}
-\contentsline {section}{\numberline {5.3}Wielowątkowość}{28}{section.5.3}
-\contentsline {chapter}{\numberline {6}Architektura}{29}{chapter.6}
-\contentsline {section}{\numberline {6.1}Spojrzenie z lotu ptaka}{29}{section.6.1}
-\contentsline {section}{\numberline {6.2}Promises}{31}{section.6.2}
-\contentsline {section}{\numberline {6.3}Wzorzec Object Pages w Ash}{32}{section.6.3}
-\contentsline {section}{\numberline {6.4}Organizacja testów. Run oraz Play}{34}{section.6.4}
-\contentsline {subsubsection}{Run}{34}{section*.17}
-\contentsline {subsubsection}{Play}{36}{section*.18}
-\contentsline {section}{\numberline {6.5}Obsługa błędów}{39}{section.6.5}
-\contentsline {chapter}{\numberline {7}Implementacja}{40}{chapter.7}
-\contentsline {section}{\numberline {7.1}Zmiana położenia ekranu}{40}{section.7.1}
-\contentsline {section}{\numberline {7.2}Dostęp do sieci}{40}{section.7.2}
-\contentsline {section}{\numberline {7.3}Dostęp do systemu plików}{42}{section.7.3}
-\contentsline {section}{\numberline {7.4}Symulacja ruchu}{42}{section.7.4}
-\contentsline {section}{\numberline {7.5}Obsługa przycisku powrotu}{42}{section.7.5}
-\contentsline {chapter}{\numberline {8}Narzędzia oraz środowisko programisty}{44}{chapter.8}
-\contentsline {section}{\numberline {8.1}Rozpraszanie wykonania testów}{44}{section.8.1}
-\contentsline {section}{\numberline {8.2}Tworzenie laboratorium urządzeń}{44}{section.8.2}
-\contentsline {chapter}{\numberline {9}Dalsze kierunki rozwoju}{45}{chapter.9}
-\contentsline {chapter}{Zakończenie}{46}{chapter*.19}
-\contentsline {chapter}{\numberline {A}Tytuł załącznika}{47}{appendix.A}
-\contentsline {chapter}{\numberline {B}Tytuł załącznika}{48}{appendix.B}
-\contentsline {chapter}{Oświadczenie}{49}{appendix*.20}
+\contentsline {chapter}{\numberline {2}Sposób użycia}{13}{chapter.2}
+\contentsline {section}{\numberline {2.1}Getting Started}{13}{section.2.1}
+\contentsline {section}{\numberline {2.2}Hello World}{13}{section.2.2}
+\contentsline {section}{\numberline {2.3}Podejście do tworzenia testów}{19}{section.2.3}
+\contentsline {section}{\numberline {2.4}Ograniczenia}{22}{section.2.4}
+\contentsline {chapter}{\numberline {3}Przegląd funkcjonalności}{25}{chapter.3}
+\contentsline {section}{\numberline {3.1}Asercje}{25}{section.3.1}
+\contentsline {subsubsection}{Sposób użycia}{25}{section*.5}
+\contentsline {subsubsection}{Opis}{25}{section*.6}
+\contentsline {section}{\numberline {3.2}Zmiana położenia ekranu}{26}{section.3.2}
+\contentsline {subsubsection}{Sposób użycia}{26}{section*.7}
+\contentsline {subsubsection}{Opis}{26}{section*.8}
+\contentsline {section}{\numberline {3.3}Dostęp do sieci}{28}{section.3.3}
+\contentsline {subsubsection}{Sposób użycia}{28}{section*.9}
+\contentsline {subsubsection}{Opis}{28}{section*.10}
+\contentsline {section}{\numberline {3.4}Dostęp do systemu plików}{30}{section.3.4}
+\contentsline {subsubsection}{Sposób użycia}{30}{section*.11}
+\contentsline {subsubsection}{Opis}{30}{section*.12}
+\contentsline {section}{\numberline {3.5}Symulacja ruchu}{31}{section.3.5}
+\contentsline {subsubsection}{Opis}{31}{section*.13}
+\contentsline {subsubsection}{Sposób użycia}{31}{section*.14}
+\contentsline {section}{\numberline {3.6}Obsługa przycisku powrotu}{33}{section.3.6}
+\contentsline {subsubsection}{Sposób użycia}{33}{section*.15}
+\contentsline {subsubsection}{Opis}{33}{section*.16}
+\contentsline {chapter}{\numberline {4}Zastosowania}{35}{chapter.4}
+\contentsline {section}{\numberline {4.1}Problemy związane z obecnymi rozwiązaniami}{36}{section.4.1}
+\contentsline {section}{\numberline {4.2}Ash jako rozwiązanie}{36}{section.4.2}
+\contentsline {section}{\numberline {4.3}RWE - real world example}{37}{section.4.3}
+\contentsline {chapter}{\numberline {5}Wtyczki}{38}{chapter.5}
+\contentsline {section}{\numberline {5.1}Klasa CordovaPlugin}{39}{section.5.1}
+\contentsline {section}{\numberline {5.2}Wielowątkowość. Komunikacja między warstwami}{40}{section.5.2}
+\contentsline {chapter}{\numberline {6}Architektura}{42}{chapter.6}
+\contentsline {section}{\numberline {6.1}Spojrzenie z lotu ptaka}{42}{section.6.1}
+\contentsline {section}{\numberline {6.2}Promises}{44}{section.6.2}
+\contentsline {section}{\numberline {6.3}Wzorzec Object Pages w Ash}{45}{section.6.3}
+\contentsline {section}{\numberline {6.4}Organizacja testów. Run oraz Play}{47}{section.6.4}
+\contentsline {subsubsection}{Run}{47}{section*.17}
+\contentsline {subsubsection}{Play}{49}{section*.18}
+\contentsline {section}{\numberline {6.5}Obsługa błędów}{52}{section.6.5}
+\contentsline {chapter}{\numberline {7}Implementacja}{53}{chapter.7}
+\contentsline {section}{\numberline {7.1}Zmiana położenia ekranu}{53}{section.7.1}
+\contentsline {section}{\numberline {7.2}Dostęp do sieci}{53}{section.7.2}
+\contentsline {section}{\numberline {7.3}Dostęp do systemu plików}{55}{section.7.3}
+\contentsline {section}{\numberline {7.4}Symulacja ruchu}{55}{section.7.4}
+\contentsline {section}{\numberline {7.5}Obsługa przycisku powrotu}{55}{section.7.5}
+\contentsline {chapter}{\numberline {8}Narzędzia oraz środowisko programisty}{57}{chapter.8}
+\contentsline {section}{\numberline {8.1}Rozpraszanie wykonania testów}{57}{section.8.1}
+\contentsline {section}{\numberline {8.2}Tworzenie laboratorium urządzeń}{57}{section.8.2}
+\contentsline {chapter}{\numberline {9}Dalsze kierunki rozwoju}{58}{chapter.9}
+\contentsline {chapter}{Zakończenie}{59}{chapter*.19}
+\contentsline {chapter}{\numberline {A}Tytuł załącznika}{60}{appendix.A}
+\contentsline {chapter}{\numberline {B}Tytuł załącznika}{61}{appendix.B}
+\contentsline {chapter}{Oświadczenie}{62}{appendix*.20}

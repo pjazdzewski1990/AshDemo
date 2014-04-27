@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.1415926-2.5-0.9999.3 (TeX Live 2013/Debian) (format=xelatex 2014.4.18)  21 APR 2014 21:11
+This is XeTeX, Version 3.1415926-2.5-0.9999.3 (TeX Live 2013/Debian) (format=xelatex 2014.4.18)  27 APR 2014 20:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -866,160 +866,192 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [6
 
 ]
-LaTeX Font Info:    Try loading font information for EU1+lmtt on input line 128
+LaTeX Font Info:    Try loading font information for EU1+lmtt on input line 127
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/euenc/eu1lmtt.fd
 File: eu1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ) [7] [8] [9]
-Overfull \hbox (11.28436pt too wide) in paragraph at lines 183--184
+Overfull \hbox (11.28436pt too wide) in paragraph at lines 181--182
 [][][]$[][][][] [] [] [] [][][][] [] [][][][][][][][][] [] [][][] [] [][][][][]
 [] [] [][][][][][][] [] [][][][][][][][][][] [] [][] [] [][] [] [][][][][]$[][]
  
  []
 
-[10] [11]
+[10]
+File: idealautomatedtestingpyramid.png Graphic file (type QTm)
+ <use  "idealautomatedtestingpyramid.png" >
+Overfull \hbox (112.16425pt too wide) in paragraph at lines 208--209
+[][][]$[][][][] [] [] [] [][][] [] [][][][][][][][][][][][] [] [][] [] [][] [] 
+[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
+][][][][][][][][][][][][][]$[][] 
+ []
+
+[11] [12]
 Rozdział 2.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 206.
+(Font)              <5> on input line 215.
 
-Underfull \hbox (badness 10000) in paragraph at lines 206--206
+Underfull \hbox (badness 10000) in paragraph at lines 215--215
 [][][]\EU1/lmr/m/n/10 Jeśli nie masz jeszcze zainstalowane Cordova CLI spójrz t
 utaj
  []
 
-[12
-
-] [13] [14] [15] [16]
-Rozdział 3.
-[17
+[13
 
 ]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+File: hello1.png Graphic file (type QTm)
+ <use  "hello1.png" >
+File: hello2.png Graphic file (type QTm)
+ <use  "hello2.png" >
+Overfull \hbox (8.65408pt too wide) in paragraph at lines 269--270
+[]\EU1/lmr/m/n/12 cordova plugins add https://github.com/pjazdzewski1990/Ash 
+ []
 
- [18]
-[19]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+[14] [15] [16]
+Underfull \vbox (badness 1571) has occurred while \output is active []
+
+ [17]
+[18] [19]
+Underfull \vbox (badness 1466) has occurred while \output is active []
 
  [20]
-[21]
+[21] [22] [23] [24]
+Rozdział 3.
+[25
+
+] [26] [27] [28]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [22]
-[23]
-Rozdział 4.
-[24
+ [29]
+[30]
+Overfull \hbox (10.78436pt too wide) in paragraph at lines 616--617
+[][][]$[][][][][] [] [] [] [][][][][][][] [] [][][][][][] [] [][][] [] [][][][]
+ [] [][] [] [] [] [] [] [] [] [][][][][][][] [] [][][][] [] [][][][] [] [][] []
 
-] [25] [26]
+ []
+
+[31]
+Underfull \vbox (badness 7869) has occurred while \output is active []
+
+ [32]
+[33] [34]
+Rozdział 4.
+[35
+
+] [36] [37]
 Rozdział 5.
 
-Overfull \hbox (35.50433pt too wide) in paragraph at lines 487--488
+Overfull \hbox (35.50433pt too wide) in paragraph at lines 764--765
 [][][]$[][][][] [] [] [] [][][][][][][] [] [][][][][][] [] [][][] [] [][][][] [
 ] [][] [] [][][][] [] [][][][][] [] [][][][][][] [] [][][][][][][] [] [][][][][
 ] []
  []
 
 
-Overfull \hbox (16.96436pt too wide) in paragraph at lines 489--490
+Overfull \hbox (16.96436pt too wide) in paragraph at lines 766--767
 [][][]$[][][][] [] [] [] [][][][][][][] [] [][][][][][] [] [][][] [] [][][][] [
 ] [][] [] [][][][] [] [][][][][] [] [][][][][][][][][] [] [][][][][][][] []
  []
 
 
-Overfull \hbox (65.10753pt too wide) in paragraph at lines 500--501
+Underfull \vbox (badness 1418) has occurred while \output is active []
+
+ [38
+
+]
+Overfull \hbox (65.10753pt too wide) in paragraph at lines 779--780
 []\EU1/lmr/m/n/12 TODO prosty diagram klas dla commitu b872df0f314194ad50cbaa09
 8ebbf717e53bb354 
  []
 
-[27
-
-] [28]
+[39] [40] [41]
 Rozdział 6.
-[29
+[42
 
-] [30] [31]
-Overfull \hbox (10.77237pt too wide) in paragraph at lines 603--604
+] [43] [44]
+Overfull \hbox (10.77237pt too wide) in paragraph at lines 924--925
 [][][]$[][][][] [] [] [] [][][][] [] [][][][][][][][][][] [] [][][] [] [][][][]
  [] [][] [] [][][][] [] [][][][][][] [] [][][][][][][][][][][][][][] []
  []
 
-[32]
+[45]
 Underfull \vbox (badness 2050) has occurred while \output is active []
 
- [33]
-[34] [35] [36] [37]
-Overfull \hbox (22.07872pt too wide) in paragraph at lines 755--756
+ [46]
+[47] [48] [49] [50]
+Overfull \hbox (22.07872pt too wide) in paragraph at lines 1076--1077
 []\EU1/lmr/m/n/12 porównanie czasu scenario[0].howLong z czasem wywołania scena
 rio[0].what 
  []
 
 
-Overfull \hbox (23.37473pt too wide) in paragraph at lines 760--761
+Overfull \hbox (23.37473pt too wide) in paragraph at lines 1081--1082
 []\EU1/lmr/m/n/12 porównanie czasu scenario[n].howLong z czasem wywołania scena
 rio[n].what 
  []
 
-[38] [39]
+[51] [52]
 Rozdział 7.
 
-Overfull \hbox (150.38237pt too wide) in paragraph at lines 794--795
+Overfull \hbox (150.38237pt too wide) in paragraph at lines 1115--1116
 [][][][][][][][][][][][][][][][][][][]  
  []
 
 
-Overfull \hbox (47.47871pt too wide) in paragraph at lines 799--800
+Overfull \hbox (47.47871pt too wide) in paragraph at lines 1120--1121
 []\EU1/lmr/m/n/12 orientationHorizontal - ActivityInfo.SCREEN_ORIENTATION_LANDS
 CAPE 
  []
 
 
-Overfull \hbox (22.4947pt too wide) in paragraph at lines 800--801
+Overfull \hbox (22.4947pt too wide) in paragraph at lines 1121--1122
 []\EU1/lmr/m/n/12 orientationVertical - ActivityInfo.SCREEN_ORIENTATION_PORTRAI
 T 
  []
 
-[40
+[53
 
 ]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [41]
-[42] [43]
+ [54]
+[55] [56]
 Rozdział 8.
-[44
+[57
 
 ]
 Rozdział 9.
-[45
+[58
 
-] [46
+] [59
 
 ]
 Dodatek A.
-[47
+[60
 
 ]
 Dodatek B.
 No file praca-new.bbl.
-[48
+[61
 
-] [49
+] [62
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 914.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 914.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1235.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1235.
  (./praca-new.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 914.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 914.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 914.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1235.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1235.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1235.
  ) 
 Here is how much of TeX's memory you used:
- 22242 strings out of 495627
- 405310 string characters out of 6187311
- 508606 words of memory out of 5000000
- 25211 multiletter control sequences out of 15000+600000
- 7833 words of font info for 50 fonts, out of 8000000 for 9000
+ 22282 strings out of 495627
+ 405875 string characters out of 6187311
+ 505606 words of memory out of 5000000
+ 25245 multiletter control sequences out of 15000+600000
+ 7841 words of font info for 51 fonts, out of 8000000 for 9000
  34 hyphenation exceptions out of 8191
- 53i,12n,72p,10424b,1707s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 53i,12n,72p,10424b,1790s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on praca-new.pdf (49 pages).
+Output written on praca-new.pdf (62 pages).

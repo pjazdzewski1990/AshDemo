@@ -168,27 +168,30 @@
   };
   
   exampleTests.visibilityTest = function(){
-    console.log("visiblity test");
+    console.log("Visiblity test");
     app.showElements();
     
-//    A.visible($("#visibilityHiddenField")[0]);
-    Ash.visible($("#displayNoneField"));
-    Ash.visible($("#displayNoneField").toArray());
-    Ash.visible($("#displayNoneField")[0]);
+    Ash.visible($("#visibilityHiddenField"));
+    Ash.visible($("#displayNoneField")); //do funkcji możemy przekazać albo obiekt jQuery
+    Ash.visible($("#hiddenPropertyField").toArray()); // albo tablicę obiektów
+    Ash.visible($("#sizeZeroField")[0]); // albo pojedynczy obiekt
 //    A.visible($("#outOfScreenField")[0]);
+    
     app.hideElements();
     
-//    A.invisible($("#visibilityHiddenField")[0]);
-    Ash.invisible($("#displayNoneField"));
-    Ash.invisible($("#displayNoneField").toArray());
-    Ash.invisible($("#displayNoneField")[0]);
+    Ash.invisible($("#visibilityHiddenField"));
+    Ash.invisible($("#displayNoneField")); //do funkcji możemy przekazać albo obiekt jQuery
+    Ash.invisible($("#hiddenPropertyField").toArray()); // albo tablicę obiektów
+    //TODO: button nie może być kompletnie niewidoczny przez zmniejszenie rozmiaru do 0x0
+//    Ash.invisible($("#sizeZeroField")[0]); // albo pojedynczy obiekt
 //    A.invisible($("#outOfScreenField")[0]);
-    app.showElements();
     
-//    A.visible($("#visibilityHiddenField"));
-    Ash.visible($("#displayNoneField"));
-    Ash.visible($("#displayNoneField").toArray());
-    Ash.visible($("#displayNoneField")[0]);
+    app.showElements();
+
+    Ash.visible($("#visibilityHiddenField"));
+    Ash.visible($("#displayNoneField")); //do funkcji możemy przekazać albo obiekt jQuery
+    Ash.visible($("#hiddenPropertyField").toArray()); // albo tablicę obiektów
+    Ash.visible($("#sizeZeroField")[0]); // albo pojedynczy obiekt
 //    A.visible($("#outOfScreenField"));
     
     Ash.endTest();

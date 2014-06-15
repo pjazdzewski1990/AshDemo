@@ -1,27 +1,27 @@
 AshDemo
 ========
 
-Jak uruchomić program:
+**Jak uruchomić program:**
 
-Skolnuj repozytorium
+**Skolnuj repozytorium**
 
 git clone git@github.com:pjazdzewski1990/AshDemo.git
 
 cd AshDemo
 
-Stwórz nowy projekt Android z lokalnymi ustawieniami
+**Stwórz nowy projekt Android z lokalnymi ustawieniami**
 
 cordova platform rm android
 
 cordova platform add android
 
-Zainstaluj najnowszą wersję wtyczki
+**Zainstaluj najnowszą wersję wtyczki**
 
 cordova plugin rm 'pl.ug.ash'
 
 cordova plugin add https://github.com/pjazdzewski1990/Ash
 
-Uruchom aplikację
+**Uruchom aplikację**
 
 sh run.sh
 
